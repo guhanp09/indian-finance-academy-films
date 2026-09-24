@@ -1,0 +1,507 @@
+<title>Negating the PIN Pad</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* A review surface is dark on purpose: a neutral surround is how you judge an image without the
+     page contaminating it. Single-theme by choice — every colour below is painted explicitly. */
+  :root{
+    --ground:#090D1B; --surface:#121930; --surface-2:#0E1428; --line:#232D4C; --line-soft:#1A2340;
+    --ink:#EDF0F8; --muted:#8C95B4; --faint:#5A6488;
+    --accent:#42D37A; --accent-dim:#1E5B39; --warn:#EC3D5A;
+    /* the film's own values, so what you judge here is what is on screen */
+    --film-navy:#0C1229; --film-panel:#19224A; --film-key:#27346A; --film-dead:#151C3C;
+    --film-green:#42D37A; --film-red:#EC3D5A; --film-ink:#F6F7FB; --film-orange:#FF6B45;
+    --film-keyink:#7C8ABC;
+    --ui:"Barlow Condensed","Helvetica Neue",Arial,sans-serif;
+    --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--body);font-size:15px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+
+  /* ── masthead ─────────────────────────────────────────────────────────── */
+  header{padding-block:34px 22px;border-bottom:1px solid var(--line-soft)}
+  .eyebrow{
+    font-family:var(--ui);font-weight:600;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--faint);margin:0 0 6px
+  }
+  h1{
+    font-family:var(--ui);font-weight:700;font-size:clamp(30px,6vw,42px);line-height:1.02;
+    letter-spacing:-.01em;margin:0;text-wrap:balance
+  }
+  .dek{margin:10px 0 0;max-width:62ch;color:var(--muted)}
+  .dek b{color:var(--ink);font-weight:600}
+
+  /* ── transport ────────────────────────────────────────────────────────── */
+  .transport{
+    position:sticky;top:0;z-index:30;background:rgba(9,13,27,.93);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    padding-block:11px;margin-block:0 22px
+  }
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+  .btn{
+    font-family:var(--ui);font-weight:600;font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+    border:1px solid var(--line);border-radius:6px;padding:7px 13px;color:var(--muted);
+    background:var(--surface-2);transition:color .15s,border-color .15s,background .15s
+  }
+  .btn:hover{color:var(--ink);border-color:var(--faint)}
+  .btn[aria-pressed="true"]{color:var(--ground);background:var(--accent);border-color:var(--accent)}
+  .play{min-width:84px}
+  .scrub{flex:1 1 220px;display:flex;align-items:center;gap:11px;min-width:180px}
+  input[type=range]{
+    flex:1;-webkit-appearance:none;appearance:none;height:3px;border-radius:2px;
+    background:var(--line);outline:none
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:15px;height:15px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--ground);cursor:pointer
+  }
+  input[type=range]::-moz-range-thumb{
+    width:15px;height:15px;border-radius:50%;background:var(--accent);
+    border:3px solid var(--ground);cursor:pointer
+  }
+  .tc{font-family:var(--mono);font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  /* ── monitors ─────────────────────────────────────────────────────────── */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  .mon{
+    display:flex;flex-direction:column;gap:0;text-align:left;width:100%;
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;
+    background:var(--surface-2);transition:border-color .15s,transform .15s
+  }
+  .mon:hover{border-color:var(--faint)}
+  .mon[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .mon svg{display:block;width:100%;height:auto;background:var(--film-navy)}
+  .cap{padding:10px 13px 12px;border-top:1px solid var(--line-soft)}
+  .cap .key{
+    font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em
+  }
+  .mon[aria-pressed="true"] .cap .key{color:var(--accent)}
+  .cap h3{
+    font-family:var(--ui);font-weight:600;font-size:18px;letter-spacing:.01em;
+    margin:1px 0 3px;color:var(--ink)
+  }
+  .cap p{margin:0;font-size:13.5px;line-height:1.45;color:var(--muted)}
+  .baseline .cap h3{color:var(--warn)}
+
+  /* ── detail ───────────────────────────────────────────────────────────── */
+  .detail{
+    margin-top:26px;border:1px solid var(--line);border-radius:10px;background:var(--surface);
+    padding:20px 22px 22px
+  }
+  .detail h2{
+    font-family:var(--ui);font-weight:700;font-size:24px;margin:0;letter-spacing:.01em
+  }
+  .detail .lede{margin:6px 0 18px;color:var(--muted);max-width:64ch}
+  dl{display:grid;grid-template-columns:112px 1fr;gap:11px 20px;margin:0}
+  @media(max-width:560px){dl{grid-template-columns:1fr;gap:3px 0}dl dd{margin-bottom:12px}}
+  dt{
+    font-family:var(--ui);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);padding-top:3px
+  }
+  dd{margin:0;color:var(--ink);font-size:14.5px}
+  dd.risk{color:var(--muted)}
+
+  /* ── faults ───────────────────────────────────────────────────────────── */
+  .faults{margin-top:40px;border-top:1px solid var(--line-soft);padding-top:26px}
+  .faults h2{
+    font-family:var(--ui);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--faint);margin:0 0 14px
+  }
+  .faults ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;
+    grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
+  .faults li{font-size:14px;color:var(--muted);line-height:1.5;border-left:2px solid var(--line);padding-left:13px}
+  .faults b{display:block;font-family:var(--ui);font-weight:600;font-size:15px;letter-spacing:.01em;color:var(--ink)}
+  @media(prefers-reduced-motion:reduce){.mon{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">UPI Scam 1 · rule panel · 31.3&ndash;35 s</p>
+    <h1>Negating the PIN&nbsp;Pad</h1>
+    <p class="dek">The RECEIVE side has to say <b>no PIN is involved in receiving money</b>. Right now a
+      thin red line is laid across the keypad. Five alternatives, animated on one clock so the motion is
+      what you compare. Nothing here is in the film yet.</p>
+  </header>
+
+  <div class="transport">
+    <button class="btn play" id="play" aria-pressed="true">Pause</button>
+    <div class="scrub">
+      <input type="range" id="scrub" min="0" max="1000" value="0" aria-label="Scrub through the beat">
+      <span class="tc" id="tc">f00 · 0.00s</span>
+    </div>
+    <button class="btn" id="slow" aria-pressed="false">½ speed</button>
+    <button class="btn" id="send" aria-pressed="false">Beside SEND</button>
+    <button class="btn" id="phone" aria-pressed="false">Phone size</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <section class="detail" id="detail" aria-live="polite"></section>
+
+  <section class="faults">
+    <h2>Why the line is weak</h2>
+    <ul>
+      <li><b>It is an annotation, not an event.</b> Everything else in this film arrives with mass, lands, is flung, is absorbed. The line simply appears.</li>
+      <li><b>It leaves its target unchanged.</b> The keypad underneath keeps its colour and brightness. It still looks available.</li>
+      <li><b>It clips only part of the grid.</b> Two keys are never touched. Partial coverage reads as <i>some</i>, not <i>none</i>.</li>
+      <li><b>The pad is not identified.</b> On this side it is drawn without digits &mdash; a grid of blank blobs. SEND has its numbers.</li>
+      <li><b>The red is borrowed.</b> Red means money leaving the account. Here it is asked to mean forbidden, in the one frame the colour script calls the cleanest in the film.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const NS = "http://www.w3.org/2000/svg";
+const el = (n, a = {}) => { const e = document.createElementNS(NS, n);
+  for (const k in a) e.setAttribute(k, a[k]); return e; };
+const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const eOut = u => 1 - Math.pow(1 - u, 3);
+const eInOut = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+const lerp = (a, b, u) => a + (b - a) * u;
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, u) => { const x = hex(a), y = hex(b);
+  return "#" + x.map((v, i) => Math.round(lerp(v, y[i], cl(u))).toString(16).padStart(2, "0")).join(""); };
+/* a struck object starts at rest with maximum velocity, so the impulse is a damped SINE */
+const shake = (u, amp, hz = 7, dec = 9) => u < 0 ? 0 : amp * Math.exp(-dec * u) * Math.sin(2 * Math.PI * hz * u);
+
+const F = getComputedStyle(document.documentElement);
+const col = n => F.getPropertyValue("--film-" + n).trim();
+const KEY = col("key"), DEAD = col("dead"), GREEN = col("green"), RED = col("red"),
+      INK = col("ink"), ORANGE = col("orange"), KEYINK = col("keyink");
+
+/* the pad, laid out exactly as Rule.tsx does it (Keyglyph at s = 1.5) */
+const PAD = [1,2,3,4,5,6,7,8,9,0].map(n => {
+  const c = n === 0 ? 1 : (n - 1) % 3, r = n === 0 ? 3 : Math.floor((n - 1) / 3);
+  return { n, c, r, x: (-58 + c * 58) * 1.5, y: (-57 + r * 38) * 1.5 };
+});
+const KW = 72, KH = 42;
+const NFRAMES = 36, FPS = 24;
+
+const OPTIONS = [
+  { id:"cur", key:"NOW", name:"A line across", baseline:true,
+    blurb:"What is in the film today: a red diagonal drawn over an unchanged pad.",
+    says:"Crossed out.",
+    motion:"The line grows from the lower left over 0.26 s. Nothing else on the panel moves or changes.",
+    sound:"None. It is silent, which is part of why it does not land.",
+    risk:"Reads as a caption laid on the picture rather than something that happened to the keypad." },
+
+  { id:"a", key:"A", name:"Powers down",
+    blurb:"Keys go dead and sink in a stagger, leaving an inert slot where the pad was.",
+    says:"Not needed — which is what the line actually says.",
+    motion:"Each key fades to the panel's own dark, drops 4 px and shrinks 3 %, staggered bottom-right to top-left over 0.2 s each. The pad stays in place, unlit. NO PIN then rises 16 px into the quiet.",
+    sound:"A descending cluster of soft key-offs, closing on a low sub thud.",
+    risk:"The quietest option. Absence needs SEND lit beside it to read as a rule." },
+
+  { id:"b", key:"B", name:"A bar lands",
+    blurb:"The strike, given mass: a solid slab drives in, overshoots and lands.",
+    says:"Refused.",
+    motion:"The pad flinches 5 px away from the incoming side, the bar crosses in 0.17 s, hits with a damped-sine impact that shakes the whole pad, and the keys grey out on the landing frame. White, not red, so it reads as a redaction rather than as loss.",
+    sound:"One heavy latch — the film's existing impact voice, pitched down.",
+    risk:"Still a strikethrough, just louder. Fixes four of the five faults on its own." },
+
+  { id:"c", key:"C", name:"Keys fall out",
+    blurb:"The keys drop out of the panel under gravity and leave the empty recess.",
+    says:"There is nothing here to type on.",
+    motion:"The pad lifts 4 px, then the keys release in a bottom-up stagger, accelerating under gravity and tumbling a few degrees as they go. The dark recess each key sat in stays behind.",
+    sound:"A short scatter of falling clicks, dry, no reverb.",
+    risk:"Can read as broken or errored rather than not-required." },
+
+  { id:"d", key:"D", name:"Becomes the words",
+    blurb:"The keys converge into one slab, which opens to reveal NO PIN inside it.",
+    says:"The question turns into its answer.",
+    motion:"Ten keys draw to the centre on a heavy spring, staggered 12 ms apart, merging into a single slab that settles with an overshoot. The slab then splits and slides apart, handing over to the words.",
+    sound:"A gathering rush, one soft clunk as the slab seats, then a light open.",
+    risk:"Costs about 0.6 s, and removes the keypad from the comparison entirely — which weakens the side-by-side with SEND." },
+
+  { id:"e", key:"E", name:"Ring and bar",
+    blurb:"The prohibition mark, drawn as an event rather than stamped on.",
+    says:"Not allowed.",
+    motion:"The ring sweeps around the pad in 0.34 s, then the bar drives through it on the beat with an impact that shakes the keys. Being a closed form it dominates the whole pad instead of clipping a corner.",
+    sound:"A rising sweep into a single hard stop.",
+    risk:"The most legible and the least original — a generic icon, and it re-uses the loss red." },
+];
+
+/* ── each monitor builds its DOM once, then only attributes change ─────────── */
+function buildMonitor(opt) {
+  const svg = el("svg", { viewBox: "0 0 340 360", role: "img",
+    "aria-label": opt.name + " — animated preview" });
+  const g = el("g");
+  svg.appendChild(g);
+
+  const panelR = el("rect", { x: 14, y: 12, width: 312, height: 336, rx: 18, fill: col("panel") });
+  g.appendChild(panelR);
+  const head = el("text", { x: 170, y: 44, "text-anchor": "middle", fill: INK, opacity: .85,
+    style: "font:600 19px var(--ui);letter-spacing:4px" });
+  head.textContent = "RECEIVE";
+  g.appendChild(head);
+
+  const stage = el("g", { transform: "translate(170 180)" });
+  g.appendChild(stage);
+
+  const parts = { keys: [], slots: [], extra: {} };
+  /* the recess each key sits in — only option C ever reveals it */
+  PAD.forEach(k => {
+    const s = el("rect", { x: k.x - KW / 2, y: k.y - KH / 2, width: KW, height: KH, rx: 12,
+      fill: DEAD, opacity: 0 });
+    stage.appendChild(s); parts.slots.push(s);
+  });
+  PAD.forEach(k => {
+    const r = el("rect", { x: -KW / 2, y: -KH / 2, width: KW, height: KH, rx: 12, fill: KEY });
+    const wrap = el("g", { transform: `translate(${k.x} ${k.y})` });
+    wrap.appendChild(r);
+    /* the digits are on in every candidate: naming the pad is a separate fix from negating it,
+       and you cannot forcefully negate something the viewer has not read as a PIN pad */
+    const t = el("text", { y: 8, "text-anchor": "middle", fill: KEYINK, opacity: .55,
+      style: "font:600 21px var(--mono)" });
+    t.textContent = k.n;
+    wrap.appendChild(t);
+    stage.appendChild(wrap);
+    parts.keys.push({ wrap, rect: r, txt: t, k });
+  });
+
+  if (opt.id === "cur") parts.extra.line = stage.appendChild(el("line",
+    { stroke: RED, "stroke-width": 11, "stroke-linecap": "round" }));
+  if (opt.id === "b") parts.extra.bar = stage.appendChild(el("rect",
+    { x: -152, y: -23, width: 304, height: 46, rx: 10, fill: INK, opacity: 0 }));
+  if (opt.id === "d") {
+    parts.extra.top = stage.appendChild(el("rect", { rx: 9, fill: KEY, opacity: 0 }));
+    parts.extra.bot = stage.appendChild(el("rect", { rx: 9, fill: KEY, opacity: 0 }));
+  }
+  if (opt.id === "e") {
+    const R = 122, C = 2 * Math.PI * R;
+    parts.extra.ring = stage.appendChild(el("circle", { r: R, fill: "none", stroke: RED,
+      "stroke-width": 13, "stroke-dasharray": C, "stroke-dashoffset": C,
+      transform: "rotate(-90)", "stroke-linecap": "round" }));
+    parts.extra.circ = C; parts.extra.R = R;
+    parts.extra.bar = stage.appendChild(el("line", { stroke: RED, "stroke-width": 13,
+      "stroke-linecap": "round", opacity: 0 }));
+  }
+
+  const label = el("text", { x: 0, y: 122, "text-anchor": "middle", fill: GREEN, opacity: 0,
+    style: "font:700 52px var(--ui);letter-spacing:3px" });
+  label.textContent = "NO PIN";
+  stage.appendChild(label);
+  parts.label = label;
+  parts.stage = stage;
+
+  /* the SEND companion, drawn only when the comparison is switched on */
+  const sendG = el("g", { transform: "translate(340 0)", opacity: 0 });
+  sendG.appendChild(el("rect", { x: 14, y: 12, width: 312, height: 336, rx: 18, fill: col("panel") }));
+  const sh = el("text", { x: 170, y: 44, "text-anchor": "middle", fill: INK, opacity: .85,
+    style: "font:600 19px var(--ui);letter-spacing:4px" });
+  sh.textContent = "SEND";
+  sendG.appendChild(sh);
+  const sst = el("g", { transform: "translate(170 180)" });
+  const LIT = [4, 8, 2, 6];
+  PAD.forEach(k => {
+    const on = LIT.includes(k.n);
+    const w = el("g", { transform: `translate(${k.x} ${k.y})` });
+    w.appendChild(el("rect", { x: -KW / 2, y: -KH / 2, width: KW, height: KH, rx: 12,
+      fill: on ? ORANGE : KEY }));
+    const t = el("text", { y: 8, "text-anchor": "middle", fill: on ? "#2A1004" : KEYINK,
+      style: "font:600 21px var(--mono)" });
+    t.textContent = k.n;
+    w.appendChild(t);
+    sst.appendChild(w);
+  });
+  const tick = el("g", { transform: "translate(0 118)" });
+  tick.appendChild(el("circle", { r: 26, fill: "none", stroke: GREEN, "stroke-width": 6 }));
+  tick.appendChild(el("path", { d: "M-11 1 L-3 10 L12 -8", fill: "none", stroke: GREEN,
+    "stroke-width": 6, "stroke-linecap": "round", "stroke-linejoin": "round" }));
+  sst.appendChild(tick);
+  const paid = el("text", { y: 172, "text-anchor": "middle", fill: GREEN,
+    style: "font:700 34px var(--ui);letter-spacing:2px" });
+  paid.textContent = "PAID";
+  sst.appendChild(paid);
+  sendG.appendChild(sst);
+  g.appendChild(sendG);
+  parts.sendG = sendG;
+  parts.svg = svg;
+  parts.root = g;
+  return parts;
+}
+
+/* ── the five candidates, as one function of t in 0..1 ────────────────────── */
+const DRAW = {
+  cur(p, t) {
+    const u = cl(t / 0.26);
+    p.keys.forEach(o => { o.rect.setAttribute("fill", KEY); o.wrap.setAttribute("transform",
+      `translate(${o.k.x} ${o.k.y})`); o.wrap.setAttribute("opacity", 1); });
+    p.extra.line.setAttribute("x1", -112); p.extra.line.setAttribute("y1", 82);
+    p.extra.line.setAttribute("x2", -112 + eOut(u) * 224);
+    p.extra.line.setAttribute("y2", 82 - eOut(u) * 164);
+    setLabel(p, cl((t - 0.34) / 0.3));
+  },
+  a(p, t) {
+    const order = [0, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+    p.keys.forEach((o, i) => {
+      const u = eOut(cl((t - order.indexOf(i) * 0.032) / 0.20));
+      o.rect.setAttribute("fill", mix(KEY, DEAD, u));
+      o.wrap.setAttribute("transform",
+        `translate(${o.k.x} ${o.k.y + u * 4}) scale(${lerp(1, 0.965, u)})`);
+      o.txt.setAttribute("opacity", 0.55 * (1 - u));
+    });
+    setLabel(p, cl((t - 0.52) / 0.34));
+  },
+  b(p, t) {
+    const anti = eOut(cl(t / 0.12)), fly = cl((t - 0.12) / 0.17), land = t - 0.29;
+    const grey = eOut(cl((t - 0.30) / 0.30));
+    const dx = anti * 5 * (1 - fly) + shake(land, 7, 8), dy = shake(land, 3, 9);
+    p.keys.forEach(o => {
+      o.rect.setAttribute("fill", mix(KEY, DEAD, grey));
+      o.wrap.setAttribute("transform", `translate(${o.k.x + dx} ${o.k.y + dy})`);
+    });
+    const bar = p.extra.bar;
+    bar.setAttribute("opacity", fly > 0 ? 1 : 0);
+    bar.setAttribute("transform", `translate(${lerp(-330, 0, eOut(fly)) + (land > 0 ? shake(land, 9, 7) : 0)} 0)`);
+    setLabel(p, cl((t - 0.48) / 0.34));
+  },
+  c(p, t) {
+    const anti = eOut(cl(t / 0.10));
+    p.slots.forEach(s => s.setAttribute("opacity", 1));
+    p.keys.forEach(o => {
+      const d = (3 - o.k.r) * 0.035 + o.k.c * 0.02;
+      const u = cl((t - 0.10 - d) / 0.62);
+      o.wrap.setAttribute("transform",
+        `translate(${o.k.x} ${o.k.y - anti * 4 + u * u * 430}) rotate(${u * (o.k.c - 1) * 11})`);
+      o.wrap.setAttribute("opacity", 1 - cl((u - 0.72) / 0.28));
+    });
+    setLabel(p, cl((t - 0.46) / 0.34));
+  },
+  d(p, t) {
+    const settle = t - 0.44, open = eOut(cl((t - 0.56) / 0.32)), lab = cl((t - 0.62) / 0.30);
+    p.keys.forEach((o, i) => {
+      const u = eInOut(cl((t - i * 0.012) / 0.42));
+      o.wrap.setAttribute("transform",
+        `translate(${o.k.x * (1 - u)} ${o.k.y * (1 - u)}) scale(${lerp(1, 0.5, u)})`);
+      o.wrap.setAttribute("opacity", 1 - cl((u - 0.86) / 0.14));
+    });
+    const on = t >= 0.40 ? 1 - eOut(cl((t - 0.62) / 0.30)) * 0.9 : 0;
+    const half = open * 30, w = lerp(120, 172, open);
+    const sq = settle > 0 ? 1 + shake(settle, 0.10, 6, 10) : 1;
+    [["top", -26 - half], ["bot", half]].forEach(([k, y]) => {
+      const r = p.extra[k];
+      r.setAttribute("x", -w); r.setAttribute("y", y);
+      r.setAttribute("width", w * 2); r.setAttribute("height", 26);
+      r.setAttribute("opacity", on);
+      r.setAttribute("transform", `scale(${sq} ${2 - sq})`);
+    });
+    setLabel(p, lab, 20);
+  },
+  e(p, t) {
+    const ring = eOut(cl(t / 0.34)), bar = eOut(cl((t - 0.34) / 0.16)), land = t - 0.50;
+    const grey = eOut(cl((t - 0.50) / 0.25));
+    p.keys.forEach(o => {
+      o.rect.setAttribute("fill", mix(KEY, DEAD, grey));
+      o.wrap.setAttribute("transform",
+        `translate(${o.k.x + shake(land, 4, 8)} ${o.k.y + shake(land, 2, 9)})`);
+    });
+    p.extra.ring.setAttribute("stroke-dashoffset", p.extra.circ * (1 - ring));
+    const L = p.extra.R * Math.SQRT1_2, b = p.extra.bar;
+    b.setAttribute("opacity", bar > 0 ? 1 : 0);
+    b.setAttribute("x1", -L); b.setAttribute("y1", L);
+    b.setAttribute("x2", lerp(-L, L, bar)); b.setAttribute("y2", lerp(L, -L, bar));
+    setLabel(p, cl((t - 0.62) / 0.30));
+  },
+};
+function setLabel(p, u, baseY = 122) {
+  const e = eOut(cl(u));
+  p.label.setAttribute("opacity", e);
+  p.label.setAttribute("y", baseY + (1 - e) * 16);
+}
+
+/* ── wiring ───────────────────────────────────────────────────────────────── */
+const grid = document.getElementById("grid");
+const mons = OPTIONS.map(opt => {
+  const btn = document.createElement("button");
+  btn.className = "mon" + (opt.baseline ? " baseline" : "");
+  btn.setAttribute("aria-pressed", "false");
+  const parts = buildMonitor(opt);
+  btn.appendChild(parts.svg);
+  const cap = document.createElement("div");
+  cap.className = "cap";
+  cap.innerHTML = `<span class="key">${opt.key}</span><h3>${opt.name}</h3><p>${opt.blurb}</p>`;
+  btn.appendChild(cap);
+  btn.addEventListener("click", () => select(opt.id));
+  grid.appendChild(btn);
+  return { opt, btn, parts };
+});
+
+const detail = document.getElementById("detail");
+let chosen = "a";
+function select(id) {
+  chosen = id;
+  const o = OPTIONS.find(x => x.id === id);
+  mons.forEach(m => m.btn.setAttribute("aria-pressed", String(m.opt.id === id)));
+  detail.innerHTML =
+    `<h2>${o.key === "NOW" ? "" : o.key + " · "}${o.name}</h2>
+     <p class="lede">${o.blurb}</p>
+     <dl>
+       <dt>Says</dt><dd>${o.says}</dd>
+       <dt>Motion</dt><dd>${o.motion}</dd>
+       <dt>Sound</dt><dd>${o.sound}</dd>
+       <dt>Watch for</dt><dd class="risk">${o.risk}</dd>
+     </dl>`;
+}
+select("a");
+
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const playBtn = document.getElementById("play"), scrub = document.getElementById("scrub"),
+      tc = document.getElementById("tc");
+let t = 0, playing = !reduce, slow = false, last = performance.now();
+
+function render() {
+  mons.forEach(m => DRAW[m.opt.id](m.parts, t));
+  const f = Math.round(t * (NFRAMES - 1));
+  tc.textContent = "f" + String(f).padStart(2, "0") + " · " + (t * 1.5).toFixed(2) + "s";
+  scrub.value = Math.round(t * 1000);
+}
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (playing) { t += dt / (slow ? 3 : 1.5); if (t > 1.22) t = 0; }
+  render();
+  requestAnimationFrame(frame);
+}
+if (reduce) { t = 1; render(); } else requestAnimationFrame(frame);
+
+playBtn.addEventListener("click", () => {
+  playing = !playing;
+  playBtn.textContent = playing ? "Pause" : "Play";
+  playBtn.setAttribute("aria-pressed", String(playing));
+});
+scrub.addEventListener("input", () => { playing = false; playBtn.textContent = "Play";
+  playBtn.setAttribute("aria-pressed", "false"); t = scrub.value / 1000; render(); });
+document.getElementById("slow").addEventListener("click", e => {
+  slow = !slow; e.currentTarget.setAttribute("aria-pressed", String(slow)); });
+document.getElementById("send").addEventListener("click", e => {
+  const on = e.currentTarget.getAttribute("aria-pressed") !== "true";
+  e.currentTarget.setAttribute("aria-pressed", String(on));
+  mons.forEach(m => {
+    m.parts.svg.setAttribute("viewBox", on ? "0 0 680 360" : "0 0 340 360");
+    m.parts.sendG.setAttribute("opacity", on ? 1 : 0);
+  });
+  grid.style.gridTemplateColumns = on ? "repeat(2,1fr)" : "";
+});
+document.getElementById("phone").addEventListener("click", e => {
+  const on = e.currentTarget.getAttribute("aria-pressed") !== "true";
+  e.currentTarget.setAttribute("aria-pressed", String(on));
+  grid.style.maxWidth = on ? "420px" : "";
+  grid.style.gridTemplateColumns = on ? "1fr" : "";
+});
+addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT") return;
+  if (e.code === "Space") { e.preventDefault(); playBtn.click(); }
+  else if (e.code === "ArrowRight") { playing = false; t = cl(t + 1 / (NFRAMES - 1)); render(); }
+  else if (e.code === "ArrowLeft") { playing = false; t = cl(t - 1 / (NFRAMES - 1)); render(); }
+  else if (/^[1-6]$/.test(e.key)) select(OPTIONS[+e.key - 1].id);
+});
+</script>
