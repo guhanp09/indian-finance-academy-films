@@ -9,6 +9,8 @@ actually happening: YOU ↔ THEM) and the **phone** below (what the victim sees)
 physically: the four PIN dots leave the phone and *become* the rupee tokens that travel the ledger.
 The authorisation *is* the money, so the reveal lands in both places at once.
 
+![A few seconds of the film: the PIN is entered and the money reverses](preview.webp)
+
 ![Storyboard — a frame at the end of each spoken line](storyboard.jpg)
 
 ## Craft notes
@@ -22,6 +24,13 @@ The authorisation *is* the money, so the reveal lands in both places at once.
   because that is how most people scan a Short.
 - **A measured hand.** The pressing hand was rebuilt from a written spec after four attempts that
   drew the right parts and still did not read as a hand ([`hand-spec.md`](hand-spec.md)).
+
+## Design board
+
+The rule panel at 0:31: five ways to show that no PIN is needed to receive money, animated on one
+clock so the motion is what gets compared. [Open the interactive board →](https://guhanp09.github.io/indian-finance-academy-films/upi-scam/nopin-options.html)
+
+<a href="https://guhanp09.github.io/indian-finance-academy-films/upi-scam/nopin-options.html"><img src="nopin-options.png" width="720" alt="Design board: five treatments for negating the PIN pad, side by side"></a>
 
 ## What's in this folder
 

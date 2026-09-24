@@ -10,6 +10,8 @@ an ordinary independent urban life costs. The film sets each country's income la
 cost of the same life, takes a price apart into its local and global inputs, and follows the gap
 down to what each worker has to work with.
 
+![A few seconds of the film: the counter rolls from ₹12,000 to ₹32,000 as the dot field fills](preview.webp)
+
 ![Storyboard — one frame from each section of the finished film](storyboard.jpg)
 
 ## The visual system
@@ -32,7 +34,7 @@ down to what each worker has to work with.
 |---|---|
 | [`script.md`](script.md) | the narration as recorded — one line per beat, sections as `##` headings; the parsers read this file |
 | [`storyboard.jpg`](storyboard.jpg) | a frame from every section of the final render, with its opening line |
-| [`explorations/`](explorations) | alternatives rendered before choosing: three treatments for a scene handover, and four channel end cards (the film uses *quiet*) |
+| [`explorations/`](explorations) | alternatives rendered before choosing: three treatments for a scene handover, and four channel end cards (the film uses *quiet*) — [play them in the browser](https://guhanp09.github.io/indian-finance-academy-films/#explorations) |
 
 ## Source and tooling
 

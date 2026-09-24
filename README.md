@@ -6,7 +6,10 @@ YouTube channel. Every frame is animated programmatically — React and TypeScri
 [Remotion](https://www.remotion.dev), with FFmpeg for encoding and muxing. Each film is a program
 whose clock is its narration.
 
-![One frame from each film](docs/hero.jpg)
+**▶ [Portfolio page](https://guhanp09.github.io/indian-finance-academy-films/)** — watch all three films in the browser, and browse the storyboards,
+design boards and rejected options.
+
+![The three films, playing: the income meter, the UPI PIN reversal, the e-Challan theft](docs/hero.webp)
 
 | Film | Format | Runtime | Watch | Source | Storyboard & docs |
 |---|---|---|---|---|---|
@@ -14,7 +17,7 @@ whose clock is its narration.
 | **This UPI Request Can Empty Your Account**<br><sub>UPI collect-request fraud</sub> | Short · 9:16 · 1080×1920 · 60 fps | 0:50 | [YouTube](https://www.youtube.com/shorts/_GaIGokHL5o) | [`src/upi-scam`](src/upi-scam) | [`docs/upi-scam`](docs/upi-scam) |
 | **This WhatsApp Message Can Empty Your Bank Account**<br><sub>fake e-Challan malware</sub> | Short · 9:16 · 1080×1920 · 60 fps | 2:08 | [YouTube](https://www.youtube.com/shorts/_-A-RW-yAME) | [`src/echallan`](src/echallan) | [`docs/echallan`](docs/echallan) |
 
-The final masters are attached to the
+The final masters are downloadable from the
 [**v1.0 release**](https://github.com/guhanp09/indian-finance-academy-films/releases/tag/v1.0).
 Rendering this repository reproduces them — same frame counts, and sampled frames match the
 published masters.
@@ -51,8 +54,9 @@ number.
   ([UPI](docs/upi-scam/premortem.md), [e-Challan](docs/echallan/premortem.md)).
 - **Boards before renders.** Hard moments are boarded as stills rendered from the film's own
   components, and alternatives are compared side by side
-  ([e-Challan boards](docs/echallan), [UPI "no PIN" options](docs/upi-scam/nopin-options.html),
-  [income-percentile explorations](docs/income-percentile/explorations)).
+  (e-Challan boards: [permissions](https://guhanp09.github.io/indian-finance-academy-films/echallan/permission-options.html),
+  [act 3](https://guhanp09.github.io/indian-finance-academy-films/echallan/act3-board.html), [act 4](https://guhanp09.github.io/indian-finance-academy-films/echallan/act4-board.html), [UPI "no PIN" options (interactive)](https://guhanp09.github.io/indian-finance-academy-films/upi-scam/nopin-options.html),
+  [income-percentile explorations](https://guhanp09.github.io/indian-finance-academy-films/#explorations)).
 - **Production rules.** The standing rules every asset and move is held to, referenced by name in
   the code: [`docs/production-rules.md`](docs/production-rules.md).
 - **Review rounds, logged.** What each round of review found and what was changed:
@@ -90,6 +94,7 @@ tools/
   upi-scam/            narration ingest + alignment, procedural score/SFX, QA
   echallan/            narration ingest + alignment, score, camera/staging/caption gates, renderer
 docs/
+  index.html           the portfolio page, served by GitHub Pages
   production-rules.md  the rules the films are built and checked against
   income-percentile/   script, storyboard, explorations
   upi-scam/            script, pre-mortem, production notes, hand spec, option board, storyboard

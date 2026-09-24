@@ -15,6 +15,8 @@ app's building. The reveal opens the office to show the apparatus behind its fa�
 climbs the chain the viewer watched being built; and the last shot walks to the real e-Challan
 office, which has been standing outside the wall the whole time.
 
+![A few seconds of the film: the office opens and the payment details are taken](preview.webp)
+
 ![Storyboard — a frame at the end of each spoken line](storyboard.jpg)
 
 ## Craft notes
@@ -29,6 +31,18 @@ office, which has been standing outside the wall the whole time.
   word, so a script edit cannot silently shift an act boundary.
 - **Captions get out of the way.** Which edge each caption page sits on is measured off the picture
   with the captions switched off — 11 of 31 pages move to the top.
+
+## Design boards
+
+Rendered from the film's own components before a frame was animated. Click a board to open it live.
+
+<table>
+<tr>
+<td width="33%" valign="top"><a href="https://guhanp09.github.io/indian-finance-academy-films/echallan/permission-options.html"><img src="permission-options.png" alt="Design board: how a permission reads, in five beats"></a><br><b>How a permission reads</b><br>Ask, allow, collect, carry, deliver — the grant as one physical act.</td>
+<td width="33%" valign="top"><a href="https://guhanp09.github.io/indian-finance-academy-films/echallan/act3-board.html"><img src="act3-board.jpg" alt="Design board for act 3, the reveal and the theft"></a><br><b>Act 3 — the reveal</b><br>The reveal and the theft in 22 frames, with its gate results.</td>
+<td width="33%" valign="top"><a href="https://guhanp09.github.io/indian-finance-academy-films/echallan/act4-board.html"><img src="act4-board.jpg" alt="Design board for act 4, the last thirty seconds"></a><br><b>Act 4 — the last 30 s</b><br>The recap as one climb, the door run backwards, the place to go instead.</td>
+</tr>
+</table>
 
 ## What's in this folder
 
