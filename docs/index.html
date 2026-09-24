@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indian Finance Academy — Films</title>
+<meta name="description" content="Three finance explainer films for YouTube, animated entirely in code with React, TypeScript and Remotion — with their storyboards, design boards and production notes.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Indian Finance Academy — Films">
+<meta property="og:description" content="Three finance explainer films, animated entirely in code with React, TypeScript and Remotion.">
+<meta property="og:image" content="https://guhanp09.github.io/indian-finance-academy-films/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0C0F15">
+<link rel="icon" href="site/ifa-mark-teal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0F15;
+    --bg-2: #10141C;
+    --panel: #151A24;
+    --panel-2: #1A2030;
+    --line: #242B3A;
+    --ink: #EDE9E1;
+    --dim: #A3A9B5;
+    --faint: #707888;
+    --gold: #E8BC48;
+    --teal: #43C6B6;
+    --max: 1120px;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  img, video, iframe { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ── top bar ─────────────────────────────────────────────── */
+  .top { border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; gap: 16px; min-height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; letter-spacing: .02em; }
+  .brand img { width: 30px; height: 30px; }
+  .nav { margin-left: auto; display: flex; gap: 22px; font-size: 14px; color: var(--dim); }
+  .nav a { text-decoration: none; }
+  .nav a:hover { color: var(--ink); }
+  @media (max-width: 640px) { .nav .opt { display: none; } }
+
+  /* ── intro ───────────────────────────────────────────────── */
+  .intro { padding: 72px 24px 40px; }
+  .eyebrow {
+    margin: 0 0 18px; font-size: 13px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  h1 {
+    margin: 0; max-width: 17ch; font-size: clamp(2.3rem, 5.4vw, 4rem); line-height: 1.05;
+    letter-spacing: -.025em; font-weight: 800;
+  }
+  h1 em { font-style: normal; color: var(--gold); }
+  .lede { margin: 22px 0 0; max-width: 60ch; font-size: 1.125rem; color: var(--dim); }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--panel); text-decoration: none; font-weight: 600;
+    font-size: 15px; transition: border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: #3A4356; background: var(--panel-2); }
+  .btn.primary { background: var(--gold); border-color: var(--gold); color: #17130A; }
+  .btn.primary:hover { background: #F0C95E; }
+  .facts {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin: 48px 0 0;
+    background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  }
+  .facts div { background: var(--bg-2); padding: 18px 20px; }
+  .facts dt { font-size: 1.6rem; font-weight: 800; letter-spacing: -.02em; }
+  .facts dd { margin: 2px 0 0; font-size: 14px; color: var(--dim); }
+  @media (max-width: 760px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* ── films ───────────────────────────────────────────────── */
+  .film { padding: 72px 24px 8px; border-top: 1px solid var(--line); margin-top: 56px; }
+  .film:first-of-type { margin-top: 32px; }
+  .film-grid { display: grid; gap: 36px; align-items: start; }
+  .film.tall .film-grid { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); }
+  @media (max-width: 820px) { .film.tall .film-grid { grid-template-columns: minmax(0, 1fr); } }
+  .kicker { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+  .kicker b { color: var(--gold); font-weight: 700; }
+  h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 800; }
+  .aka { margin: 8px 0 0; color: var(--faint); font-size: 15px; }
+  .aka i { color: var(--dim); }
+  .film p.body { margin: 18px 0 0; color: var(--dim); max-width: 64ch; }
+  .film p.body b { color: var(--ink); font-weight: 600; }
+  .points { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; max-width: 64ch; }
+  .points li { position: relative; padding-left: 22px; color: var(--dim); }
+  .points li::before { content: ""; position: absolute; left: 0; top: .72em; width: 10px; height: 2px; background: var(--gold); }
+  .points li b { color: var(--ink); font-weight: 600; }
+
+  /* the player: a poster that becomes the YouTube embed on click */
+  .player { position: relative; border-radius: var(--radius); overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .player.wide { aspect-ratio: 16 / 9; }
+  .player.tall { aspect-ratio: 9 / 16; max-width: 340px; }
+  @media (max-width: 820px) { .player.tall { margin: 0 auto; width: 100%; } }
+  .player iframe { width: 100%; height: 100%; border: 0; }
+  .facade { position: absolute; inset: 0; display: block; cursor: pointer; }
+  .facade img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease, filter .3s; }
+  .facade:hover img { transform: scale(1.015); filter: brightness(1.08); }
+  .facade .play {
+    position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px;
+    border-radius: 50%; background: rgba(12, 15, 21, .72); border: 1px solid rgba(237, 233, 225, .35);
+    backdrop-filter: blur(4px); display: grid; place-items: center; transition: background .15s, transform .15s;
+  }
+  .facade .play::after { content: ""; margin-left: 5px; border-style: solid; border-width: 13px 0 13px 21px; border-color: transparent transparent transparent var(--ink); }
+  .facade:hover .play { background: var(--gold); transform: scale(1.05); }
+  .facade:hover .play::after { border-left-color: #17130A; }
+  .facade .yt {
+    position: absolute; left: 12px; bottom: 12px; padding: 5px 10px; border-radius: 999px; font-size: 12px;
+    font-weight: 600; background: rgba(12, 15, 21, .78); color: var(--ink);
+  }
+
+  /* behind-the-film assets */
+  h3.minor {
+    margin: 44px 0 16px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--faint);
+  }
+  .assets { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+  .asset {
+    display: flex; flex-direction: column; text-decoration: none; background: var(--panel);
+    border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: border-color .15s, transform .15s;
+  }
+  .asset:hover { border-color: #3A4356; transform: translateY(-2px); }
+  .asset .thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+  .asset .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .asset .t { padding: 12px 14px 0; font-weight: 700; font-size: 15px; }
+  .asset .t small { display: block; margin-bottom: 3px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+  .asset .d { padding: 4px 14px 14px; font-size: 14px; color: var(--dim); }
+  .read { margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px 10px; font-size: 14px; color: var(--faint); align-items: center; }
+  .read a {
+    text-decoration: none; color: var(--dim); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line);
+  }
+  .read a:hover { color: var(--ink); border-color: #3A4356; }
+
+  .clips { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+  @media (max-width: 640px) { .clips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .clips figcaption { padding: 8px 10px 10px; font-size: 13px; } }
+  .clips figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .clips video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+  .clips figcaption { padding: 10px 14px 12px; font-size: 14px; color: var(--dim); }
+  .clips figcaption b { color: var(--ink); font-weight: 600; }
+  .tag { margin-left: 6px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #17130A; background: var(--gold); padding: 2px 7px; border-radius: 999px; }
+
+  /* ── process ─────────────────────────────────────────────── */
+  .process { padding: 88px 24px 24px; border-top: 1px solid var(--line); margin-top: 72px; }
+  .process .lede { margin-top: 14px; }
+  .steps { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 20px; color: var(--dim); font-size: 15px; }
+  .steps li::before { content: counter(s, decimal-leading-zero); display: block; font-weight: 800; color: var(--gold); margin-bottom: 8px; letter-spacing: .04em; }
+  .steps li b { display: block; color: var(--ink); font-weight: 700; margin-bottom: 4px; }
+  .stack { margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack span { font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); color: var(--dim); }
+
+  footer { margin-top: 80px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; padding-top: 28px; padding-bottom: 40px; color: var(--faint); font-size: 14px; }
+  footer a { color: var(--dim); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="site/ifa-mark.png" alt="">Indian Finance Academy</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="opt" href="#films">Films</a>
+      <a class="opt" href="#process">How they're built</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films">GitHub</a>
+      <a href="https://www.youtube.com/@IndianFinanceAcademy">YouTube</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="intro wrap">
+    <p class="eyebrow">Finance documentaries · animated in code</p>
+    <h1>Films where the <em>picture</em> moves when the <em>argument</em> does.</h1>
+    <p class="lede">Three explainers for the Indian Finance Academy YouTube channel. Every frame is animated
+      programmatically — React and TypeScript on Remotion, with FFmpeg for encoding — and the narration is the
+      clock: each visual event is anchored to a measured word, so a new read re-times the whole film.</p>
+    <div class="cta">
+      <a class="btn primary" href="#films">Watch the films</a>
+      <a class="btn" href="https://github.com/guhanp09/indian-finance-academy-films">Source on GitHub</a>
+      <a class="btn" href="https://www.youtube.com/@IndianFinanceAcademy">YouTube channel</a>
+    </div>
+    <dl class="facts">
+      <div><dt>3</dt><dd>films — one long-form, two Shorts</dd></div>
+      <div><dt>11:19</dt><dd>of finished animation</dd></div>
+      <div><dt>25,718</dt><dd>frames, every one rendered from code</dd></div>
+      <div><dt>366</dt><dd>beats, each anchored to a measured word</dd></div>
+    </dl>
+  </section>
+
+  <div id="films"></div>
+
+  <!-- ── 1 · income percentile ─────────────────────────────── -->
+  <section class="film wide wrap" id="income-percentile">
+    <div class="film-grid">
+      <div class="player wide">
+        <a class="facade" href="https://www.youtube.com/watch?v=P9wEO_TRy9E" data-yt="P9wEO_TRy9E"
+           aria-label="Play It's Not Just You: India Has a Real Structural Economic Problem">
+          <img src="site/poster-income-percentile.jpg" alt="Two income ladders, USA and India, with the cost of the same life marked on each">
+          <span class="play" aria-hidden="true"></span><span class="yt">Watch · 8:21</span>
+        </a>
+      </div>
+      <div>
+        <p class="kicker"><b>Long-form</b> · 16:9 · 1920×1080 · 30 fps · 8:21</p>
+        <h2>It's Not Just You: India Has a Real Structural Economic Problem</h2>
+        <p class="aka">Working title: <i>What no one tells you about your income percentile in India</i></p>
+        <p class="body">₹32,000 a month puts you in India's top 10% of earners — and still short of what an ordinary
+          independent urban life costs. The film sets each country's income ladder against the cost of the same life,
+          takes a price apart into its local and global inputs, and follows the gap down to <b>what each worker has to
+          work with</b>.</p>
+        <ul class="points">
+          <li><b>Rank and amount in one picture.</b> A 100-dot percentile field beside an income "meter" — a stack of
+            notes scaled to each country's ceiling — so "top 10%" and "₹32,000" are read together.</li>
+          <li><b>Cost is hatched over income, never replacing it,</b> so a shortfall is a visible overlap on the same ladder.</li>
+          <li><b>Numbers are consequences.</b> Each counter is an odometer tied to what it measures, and settles on the
+            exact frame the number is spoken — checked by an automated gate.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="minor">Behind the film</h3>
+    <div class="assets">
+      <a class="asset" href="income-percentile/storyboard.jpg">
+        <span class="thumb"><img loading="lazy" src="income-percentile/storyboard.jpg" alt="Storyboard sheet: one frame from each of the film's seventeen sections"></span>
+        <span class="t"><small>Storyboard</small>Seventeen sections</span>
+        <span class="d">A frame from every section of the finished film, with its opening line.</span>
+      </a>
+      <a class="asset" href="#explorations">
+        <span class="thumb"><img loading="lazy" src="site/poster-endcard-quiet.jpg" alt="Channel end card option"></span>
+        <span class="t"><small>Explorations</small>Options, rendered</span>
+        <span class="d">Three scene handovers and four end cards, compared before choosing — playable below.</span>
+      </a>
+    </div>
+    <p class="read">Read:
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/income-percentile/README.md">Film notes</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/income-percentile/script.md">Script</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/tree/main/src/income-percentile">Source code</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/tree/main/tools/income-percentile">QA gates &amp; tooling</a>
+    </p>
+
+    <h3 class="minor" id="explorations">Explorations — rendered before choosing</h3>
+    <div class="clips">
+      <figure><video controls muted loop playsinline preload="none" poster="site/poster-handover-a-current.jpg" src="income-percentile/explorations/handover-a-current.mp4"></video>
+        <figcaption><b>Scene handover · A</b> — current</figcaption></figure>
+      <figure><video controls muted loop playsinline preload="none" poster="site/poster-handover-b-mirror.jpg" src="income-percentile/explorations/handover-b-mirror.mp4"></video>
+        <figcaption><b>Scene handover · B</b> — mirror</figcaption></figure>
+      <figure><video controls muted loop playsinline preload="none" poster="site/poster-handover-c-pullback.jpg" src="income-percentile/explorations/handover-c-pullback.mp4"></video>
+        <figcaption><b>Scene handover · C</b> — pull-back</figcaption></figure>
+      <figure><video controls muted loop playsinline preload="none" poster="site/poster-endcard-quiet.jpg" src="income-percentile/explorations/endcard-quiet.mp4"></video>
+        <figcaption><b>End card · quiet</b><span class="tag">Used</span></figcaption></figure>
+      <figure><video controls muted loop playsinline preload="none" poster="site/poster-endcard-homecoming.jpg" src="income-percentile/explorations/endcard-homecoming.mp4"></video>
+        <figcaption><b>End card · homecoming</b></figcaption></figure>
+      <figure><video controls muted loop playsinline preload="none" poster="site/poster-endcard-rule.jpg" src="income-percentile/explorations/endcard-rule.mp4"></video>
+        <figcaption><b>End card · rule</b></figcaption></figure>
+      <figure><video controls muted loop playsinline preload="none" poster="site/poster-endcard-endscreen.jpg" src="income-percentile/explorations/endcard-endscreen.mp4"></video>
+        <figcaption><b>End card · end screen</b></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ── 2 · UPI scam ──────────────────────────────────────── -->
+  <section class="film tall wrap" id="upi-scam">
+    <div class="film-grid">
+      <div class="player tall">
+        <a class="facade" href="https://www.youtube.com/shorts/_GaIGokHL5o" data-yt="_GaIGokHL5o"
+           aria-label="Play This UPI Request Can Empty Your Account">
+          <img src="site/poster-upi-scam.jpg" alt="A UPI collect request for ₹8,450 on a phone, with the PIN pad below and the ledger above">
+          <span class="play" aria-hidden="true"></span><span class="yt">Watch · 0:50</span>
+        </a>
+      </div>
+      <div>
+        <p class="kicker"><b>YouTube Short</b> · 9:16 · 1080×1920 · 60 fps · 0:50</p>
+        <h2>This UPI Request Can Empty Your Account</h2>
+        <p class="aka">UPI collect-request fraud</p>
+        <p class="body">A UPI "collect request" is dressed up as money coming in, and entering the PIN sends money out.
+          The film keeps two registers on screen at once — the <b>ledger</b> above (what is actually happening) and the
+          <b>phone</b> below (what the victim sees) — and links them physically: the four PIN dots leave the phone and
+          <b>become</b> the rupee tokens that travel the ledger. The authorisation is the money.</p>
+        <ul class="points">
+          <li><b>One of everything.</b> One phone, one flow arrow, one request card — carried from the seller to the
+            crowd to the parents. Nothing is destroyed and rebuilt.</li>
+          <li><b>78 beats, each anchored to a measured word;</b> the reversal also reads in greyscale, through
+            direction and position.</li>
+          <li><b>A measured hand.</b> The pressing hand is built from a written spec after four attempts that drew the
+            right parts and still didn't read as a hand.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="minor">Behind the film</h3>
+    <div class="assets">
+      <a class="asset" href="upi-scam/storyboard.jpg">
+        <span class="thumb"><img loading="lazy" src="upi-scam/storyboard.jpg" alt="Storyboard sheet for the UPI Short"></span>
+        <span class="t"><small>Storyboard</small>Line by line</span>
+        <span class="d">A frame from the final render at the end of each spoken line.</span>
+      </a>
+      <a class="asset" href="upi-scam/nopin-options.html">
+        <span class="thumb"><img loading="lazy" src="upi-scam/nopin-options.png" alt="Design board comparing five ways to negate the PIN pad"></span>
+        <span class="t"><small>Design board · interactive</small>Negating the PIN pad</span>
+        <span class="d">Five treatments for "no PIN to receive", animated on one clock, side by side.</span>
+      </a>
+    </div>
+    <p class="read">Read:
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/upi-scam/premortem.md">Pre-mortem</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/upi-scam/production-notes.md">Production notes</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/upi-scam/hand-spec.md">Hand spec</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/tree/main/src/upi-scam">Source code</a>
+    </p>
+  </section>
+
+  <!-- ── 3 · e-Challan ─────────────────────────────────────── -->
+  <section class="film tall wrap" id="echallan">
+    <div class="film-grid">
+      <div class="player tall">
+        <a class="facade" href="https://www.youtube.com/shorts/_-A-RW-yAME" data-yt="_-A-RW-yAME"
+           aria-label="Play This WhatsApp Message Can Empty Your Bank Account">
+          <img src="site/poster-echallan.jpg" alt="The app's office opened up to reveal the malware apparatus behind its façade">
+          <span class="play" aria-hidden="true"></span><span class="yt">Watch · 2:08</span>
+        </a>
+      </div>
+      <div>
+        <p class="kicker"><b>YouTube Short</b> · 9:16 · 1080×1920 · 60 fps · 2:08</p>
+        <h2>This WhatsApp Message Can Empty Your Bank Account</h2>
+        <p class="aka">Fake e-Challan malware</p>
+        <p class="body">The trap is boring: a fake traffic challan, an APK, an "update", four routine permission prompts.
+          The film makes the phone a <b>walled city</b>. Installing from outside the Play Store cuts a door in the wall;
+          the app builds an office inside it; each permission opens a real facility — the post office for SMS, the
+          exchange for calls — and grows a matching machine on the app's building. The reveal opens the office to show
+          the apparatus behind the façade.</p>
+        <ul class="points">
+          <li><b>One continuous camera for all four acts,</b> measured as optical flow so no move stops dead or arrives
+            harder than its speed allows.</li>
+          <li><b>Object permanence.</b> What the viewer presses is what arrives; the payload stays lit in the office,
+            so the reveal re-focuses on something already seen.</li>
+          <li><b>Captions get out of the way.</b> Which edge each caption sits on is measured off the picture — 11 of 31
+            pages move to the top.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="minor">Behind the film</h3>
+    <div class="assets">
+      <a class="asset" href="echallan/storyboard.jpg">
+        <span class="thumb"><img loading="lazy" src="echallan/storyboard.jpg" alt="Storyboard sheet for the e-Challan Short"></span>
+        <span class="t"><small>Storyboard</small>Line by line</span>
+        <span class="d">A frame from the final render at the end of each spoken line.</span>
+      </a>
+      <a class="asset" href="echallan/permission-options.html">
+        <span class="thumb"><img loading="lazy" src="echallan/permission-options.png" alt="Design board: how a permission reads, in five beats"></span>
+        <span class="t"><small>Design board</small>How a permission reads</span>
+        <span class="d">Ask, allow, collect, carry, deliver — the grant as one physical act.</span>
+      </a>
+      <a class="asset" href="echallan/act3-board.html">
+        <span class="thumb"><img loading="lazy" src="echallan/act3-board.jpg" alt="Design board for act 3: the reveal and the theft, in 22 frames"></span>
+        <span class="t"><small>Design board</small>Act 3 — the reveal</span>
+        <span class="d">The reveal and the theft in 22 frames, with its gate results.</span>
+      </a>
+      <a class="asset" href="echallan/act4-board.html">
+        <span class="thumb"><img loading="lazy" src="echallan/act4-board.jpg" alt="Design board for act 4: the last thirty seconds"></span>
+        <span class="t"><small>Design board</small>Act 4 — the last 30 s</span>
+        <span class="d">The recap as one climb, the door run backwards, and the place to go instead.</span>
+      </a>
+    </div>
+    <p class="read">Read:
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/echallan/premortem.md">Pre-mortem</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/echallan/opening-transitions.md">Review log</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/echallan/production-status.md">Production status</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/tree/main/src/echallan">Source code</a>
+    </p>
+  </section>
+
+  <!-- ── process ───────────────────────────────────────────── -->
+  <section class="process wrap" id="process">
+    <p class="eyebrow">How they're built</p>
+    <h2>The narration is the clock.</h2>
+    <p class="lede">No visual event in these films is placed at a typed frame number. Everything hangs off the
+      measured narration, and every render is checked by gates that measure it.</p>
+    <ol class="steps">
+      <li><b>Lock the script</b>Split into beats at the words that motivate a visual event, so the subtitles cannot drift from the voice.</li>
+      <li><b>Measure the read</b>The recorded narration is force-aligned to the script — every word gets a measured start and end.</li>
+      <li><b>Anchor to words</b>Scenes, statistics, camera keys, colour and sound are offsets from words. Re-record, and the film re-times itself.</li>
+      <li><b>Board first</b>Pre-mortems and design boards settle the hard moments while changing them is cheap.</li>
+      <li><b>Gate the render</b>Numbers land on the spoken frame, nothing moves before its line, no dead holds, no hard camera stops.</li>
+    </ol>
+    <div class="stack" aria-label="Tools">
+      <span>React</span><span>TypeScript</span><span>Remotion</span><span>FFmpeg</span><span>SVG</span><span>Node.js</span><span>Python</span>
+    </div>
+    <p class="read" style="margin-top:28px">More:
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/blob/main/docs/production-rules.md">Production rules</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films#automated-qa">Automated QA</a>
+      <a href="https://github.com/guhanp09/indian-finance-academy-films/releases/tag/v1.0">Final masters (download)</a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Indian Finance Academy</span>
+    <span><a href="https://github.com/guhanp09/indian-finance-academy-films">Source on GitHub</a> · <a href="https://www.youtube.com/@IndianFinanceAcademy">YouTube</a></span>
+  </div>
+</footer>
+
+<script>
+  // Each poster is a plain link to YouTube; with JavaScript it becomes the embedded player instead.
+  document.querySelectorAll('.facade[data-yt]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${link.dataset.yt}?autoplay=1&rel=0&playsinline=1`;
+      frame.title = link.getAttribute('aria-label').replace(/^Play /, '');
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.allowFullscreen = true;
+      link.replaceWith(frame);
+      frame.focus();
+    });
+  });
+</script>
+</body>
+</html>
