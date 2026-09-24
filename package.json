@@ -1,0 +1,35 @@
+{
+  "name": "indian-finance-academy-films",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Source, storyboards and assets for three Indian Finance Academy films, animated programmatically in Remotion.",
+  "author": "Guhan Purushothaman",
+  "type": "module",
+  "scripts": {
+    "studio:income-percentile": "remotion studio src/income-percentile/index.tsx",
+    "studio:upi-scam": "remotion studio src/upi-scam/index.tsx",
+    "studio:echallan": "remotion studio src/echallan/index.tsx",
+    "render:income-percentile": "bash tools/income-percentile/render.sh",
+    "render:upi-scam": "remotion render src/upi-scam/index.tsx UpiScam1 output/upi-scam.mp4 --codec=h264 --crf=18",
+    "render:echallan": "node tools/echallan/render.mjs output/echallan.mp4",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.512",
+    "@remotion/captions": "4.0.512",
+    "@remotion/cli": "^4.0.512",
+    "@remotion/google-fonts": "^4.0.512",
+    "@remotion/media-utils": "^4.0.512",
+    "@remotion/paths": "^4.0.512",
+    "@remotion/renderer": "^4.0.512",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.512"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^7.0.2"
+  }
+}
