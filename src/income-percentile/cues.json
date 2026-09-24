@@ -1,0 +1,725 @@
+{
+ "fps": 30,
+ "cues": {
+  "in.12k": {
+   "beat": 0,
+   "startFrame": 19,
+   "frame": 42,
+   "words": "twelve thousand"
+  },
+  "in.50": {
+   "beat": 0,
+   "startFrame": 136,
+   "frame": 148,
+   "words": "half"
+  },
+  "in.32k": {
+   "beat": 1,
+   "startFrame": 215,
+   "frame": 246,
+   "words": "thirty two thousand"
+  },
+  "in.t10": {
+   "beat": 1,
+   "startFrame": 280,
+   "frame": 308,
+   "words": "top ten percent"
+  },
+  "in.75k": {
+   "beat": 2,
+   "startFrame": 362,
+   "frame": 404,
+   "words": "seventy five thousand"
+  },
+  "in.t1": {
+   "beat": 2,
+   "startFrame": 412,
+   "frame": 460,
+   "words": "top one percent"
+  },
+  "pivot.mislead": {
+   "beat": 3,
+   "startFrame": 556,
+   "frame": 577,
+   "words": "misleading"
+  },
+  "us.50": {
+   "beat": 5,
+   "startFrame": 698,
+   "frame": 708,
+   "words": "half"
+  },
+  "us.4400": {
+   "beat": 5,
+   "startFrame": 761,
+   "frame": 805,
+   "words": "four thousand four hundred"
+  },
+  "us.90": {
+   "beat": 6,
+   "startFrame": 863,
+   "frame": 885,
+   "words": "ninety percent"
+  },
+  "us.12900": {
+   "beat": 6,
+   "startFrame": 907,
+   "frame": 957,
+   "words": "twelve thousand nine hundred"
+  },
+  "us.99": {
+   "beat": 7,
+   "startFrame": 1006,
+   "frame": 1037,
+   "words": "ninety nine percent"
+  },
+  "us.37500": {
+   "beat": 7,
+   "startFrame": 1060,
+   "frame": 1129,
+   "words": "thirty seven thousand five hundred"
+  },
+  "life.usa": {
+   "beat": 9,
+   "startFrame": 1327,
+   "frame": 1342,
+   "words": "usa"
+  },
+  "life.rent": {
+   "beat": 10,
+   "startFrame": 1370,
+   "frame": 1380,
+   "words": "rent"
+  },
+  "life.food": {
+   "beat": 10,
+   "startFrame": 1485,
+   "frame": 1496,
+   "words": "food"
+  },
+  "life.util": {
+   "beat": 10,
+   "startFrame": 1504,
+   "frame": 1523,
+   "words": "utilities"
+  },
+  "life.tran": {
+   "beat": 10,
+   "startFrame": 1537,
+   "frame": 1554,
+   "words": "transport"
+  },
+  "life.leis": {
+   "beat": 10,
+   "startFrame": 1590,
+   "frame": 1603,
+   "words": "leisure"
+  },
+  "us.cost": {
+   "beat": 11,
+   "startFrame": 1797,
+   "frame": 1879,
+   "words": "two thousand five hundred eighty"
+  },
+  "us.left.med": {
+   "beat": 12,
+   "startFrame": 1982,
+   "frame": 2063,
+   "words": "one thousand eight hundred twenty"
+  },
+  "us.tax": {
+   "beat": 13,
+   "startFrame": 2186,
+   "frame": 2198,
+   "words": "taxes"
+  },
+  "us.left.tax": {
+   "beat": 13,
+   "startFrame": 2273,
+   "frame": 2338,
+   "words": "one thousand one hundred"
+  },
+  "us.left.t10": {
+   "beat": 14,
+   "startFrame": 2428,
+   "frame": 2496,
+   "words": "seven thousand two hundred"
+  },
+  "us.left.t1": {
+   "beat": 15,
+   "startFrame": 2608,
+   "frame": 2680,
+   "words": "twenty three thousand two hundred"
+  },
+  "in.cost": {
+   "beat": 16,
+   "startFrame": 2934,
+   "frame": 3011,
+   "words": "thirty five thousand four hundred"
+  },
+  "in.short.med": {
+   "beat": 17,
+   "startFrame": 3124,
+   "frame": 3204,
+   "words": "twenty three thousand four hundred"
+  },
+  "in.even.t10": {
+   "beat": 18,
+   "startFrame": 3239,
+   "frame": 3263,
+   "words": "even"
+  },
+  "in.short.t10": {
+   "beat": 18,
+   "startFrame": 3337,
+   "frame": 3403,
+   "words": "three thousand four hundred"
+  },
+  "in.only.t1": {
+   "beat": 19,
+   "startFrame": 3461,
+   "frame": 3472,
+   "words": "only"
+  },
+  "in.left.t1": {
+   "beat": 19,
+   "startFrame": 3544,
+   "frame": 3633,
+   "words": "thirty nine thousand six hundred"
+  },
+  "q.us": {
+   "beat": 20,
+   "startFrame": 3762,
+   "frame": 3773,
+   "words": "below"
+  },
+  "q.in": {
+   "beat": 21,
+   "startFrame": 3862,
+   "frame": 3874,
+   "words": "above"
+  },
+  "q.why": {
+   "beat": 22,
+   "startFrame": 3991,
+   "frame": 4004,
+   "words": "exist"
+  },
+  "apart.go": {
+   "beat": 23,
+   "startFrame": 4084,
+   "frame": 4103,
+   "words": "constitutes"
+  },
+  "apart.hair": {
+   "beat": 24,
+   "startFrame": 4249,
+   "frame": 4260,
+   "words": "haircut"
+  },
+  "apart.phone": {
+   "beat": 24,
+   "startFrame": 4275,
+   "frame": 4286,
+   "words": "phone"
+  },
+  "apart.food": {
+   "beat": 24,
+   "startFrame": 4295,
+   "frame": 4310,
+   "words": "food"
+  },
+  "apart.tran": {
+   "beat": 24,
+   "startFrame": 4321,
+   "frame": 4335,
+   "words": "transport"
+  },
+  "apart.rent": {
+   "beat": 24,
+   "startFrame": 4348,
+   "frame": 4360,
+   "words": "rent"
+  },
+  "apart.local": {
+   "beat": 24,
+   "startFrame": 4425,
+   "frame": 4454,
+   "words": "local inputs"
+  },
+  "apart.global": {
+   "beat": 24,
+   "startFrame": 4481,
+   "frame": 4513,
+   "words": "global inputs"
+  },
+  "apart.wider": {
+   "beat": 24,
+   "startFrame": 4573,
+   "frame": 4600,
+   "words": "wider market"
+  },
+  "hair.in": {
+   "beat": 25,
+   "startFrame": 4621,
+   "frame": 4632,
+   "words": "haircut"
+  },
+  "hair.local": {
+   "beat": 25,
+   "startFrame": 4735,
+   "frame": 4762,
+   "words": "local labour"
+  },
+  "hair.extreme": {
+   "beat": 25,
+   "startFrame": 4655,
+   "frame": 4680,
+   "words": "one extreme"
+  },
+  "hair.21x": {
+   "beat": 26,
+   "startFrame": 4910,
+   "frame": 4957,
+   "words": "twenty one times"
+  },
+  "phone.in": {
+   "beat": 27,
+   "startFrame": 5035,
+   "frame": 5045,
+   "words": "phone"
+  },
+  "phone.extreme": {
+   "beat": 27,
+   "startFrame": 5087,
+   "frame": 5108,
+   "words": "other extreme"
+  },
+  "phone.chain": {
+   "beat": 28,
+   "startFrame": 5261,
+   "frame": 5302,
+   "words": "global supply chains"
+  },
+  "phone.same": {
+   "beat": 28,
+   "startFrame": 5348,
+   "frame": 5365,
+   "words": "necessarily"
+  },
+  "mid.between": {
+   "beat": 29,
+   "startFrame": 5557,
+   "frame": 5567,
+   "words": "between"
+  },
+  "mid.food": {
+   "beat": 30,
+   "startFrame": 5615,
+   "frame": 5629,
+   "words": "food"
+  },
+  "mid.tran": {
+   "beat": 31,
+   "startFrame": 5777,
+   "frame": 5806,
+   "words": "transport"
+  },
+  "mid.rent": {
+   "beat": 32,
+   "startFrame": 5991,
+   "frame": 6003,
+   "words": "rent"
+  },
+  "mid.land": {
+   "beat": 33,
+   "startFrame": 6249,
+   "frame": 6281,
+   "words": "located land"
+  },
+  "basket.together": {
+   "beat": 34,
+   "startFrame": 6363,
+   "frame": 6376,
+   "words": "together"
+  },
+  "basket.6x": {
+   "beat": 34,
+   "startFrame": 6509,
+   "frame": 6542,
+   "words": "six times"
+  },
+  "basket.inIndia": {
+   "beat": 34,
+   "startFrame": 6556,
+   "frame": 6580,
+   "words": "in india"
+  },
+  "basket.inUS": {
+   "beat": 34,
+   "startFrame": 6595,
+   "frame": 6615,
+   "words": "in america"
+  },
+  "basket.if6": {
+   "beat": 35,
+   "startFrame": 6824,
+   "frame": 6875,
+   "words": "six times lower"
+  },
+  "basket.31x": {
+   "beat": 36,
+   "startFrame": 6965,
+   "frame": 7020,
+   "words": "thirty one times"
+  },
+  "basket.prices": {
+   "beat": 37,
+   "startFrame": 7086,
+   "frame": 7111,
+   "words": "indian prices"
+  },
+  "basket.dispro": {
+   "beat": 37,
+   "startFrame": 7190,
+   "frame": 7227,
+   "words": "disproportionately"
+  },
+  "prod.q": {
+   "beat": 38,
+   "startFrame": 7394,
+   "frame": 7407,
+   "words": "place"
+  },
+  "prod.word": {
+   "beat": 39,
+   "startFrame": 7462,
+   "frame": 7479,
+   "words": "productivity"
+  },
+  "prod.27x": {
+   "beat": 40,
+   "startFrame": 7671,
+   "frame": 7721,
+   "words": "twenty seven times"
+  },
+  "prod.pay": {
+   "beat": 41,
+   "startFrame": 7910,
+   "frame": 7921,
+   "words": "pay"
+  },
+  "prod.value": {
+   "beat": 41,
+   "startFrame": 7984,
+   "frame": 8008,
+   "words": "value"
+  },
+  "prod.cap": {
+   "beat": 41,
+   "startFrame": 8045,
+   "frame": 8056,
+   "words": "produce"
+  },
+  "sect.q": {
+   "beat": 42,
+   "startFrame": 8225,
+   "frame": 8241,
+   "words": "value"
+  },
+  "sect.half": {
+   "beat": 43,
+   "startFrame": 8460,
+   "frame": 8483,
+   "words": "nearly half"
+  },
+  "sect.agri": {
+   "beat": 43,
+   "startFrame": 8549,
+   "frame": 8570,
+   "words": "agriculture"
+  },
+  "sect.us": {
+   "beat": 43,
+   "startFrame": 8605,
+   "frame": 8624,
+   "words": "not the case"
+  },
+  "sect.scrutiny": {
+   "beat": 44,
+   "startFrame": 8774,
+   "frame": 8790,
+   "words": "scrutiny"
+  },
+  "sect.move": {
+   "beat": 45,
+   "startFrame": 9014,
+   "frame": 9047,
+   "words": "service industry"
+  },
+  "sect.17x": {
+   "beat": 45,
+   "startFrame": 9319,
+   "frame": 9377,
+   "words": "one seven times"
+  },
+  "sect.subst": {
+   "beat": 47,
+   "startFrame": 9553,
+   "frame": 9571,
+   "words": "substantial"
+  },
+  "hyp.17": {
+   "beat": 48,
+   "startFrame": 9656,
+   "frame": 9688,
+   "words": "one seven"
+  },
+  "hyp.2x": {
+   "beat": 48,
+   "startFrame": 9716,
+   "frame": 9737,
+   "words": "two times"
+  },
+  "hyp.blame": {
+   "beat": 48,
+   "startFrame": 9840,
+   "frame": 9852,
+   "words": "blame"
+  },
+  "sect.27x": {
+   "beat": 49,
+   "startFrame": 10144,
+   "frame": 10228,
+   "words": "twenty seven fold"
+  },
+  "sect.no": {
+   "beat": 50,
+   "startFrame": 10344,
+   "frame": 10364,
+   "words": "main reason"
+  },
+  "ins.claim": {
+   "beat": 51,
+   "startFrame": 10495,
+   "frame": 10517,
+   "words": "inside"
+  },
+  "ins.34x": {
+   "beat": 52,
+   "startFrame": 10690,
+   "frame": 10736,
+   "words": "thirty four times"
+  },
+  "ins.23x": {
+   "beat": 53,
+   "startFrame": 10803,
+   "frame": 10846,
+   "words": "twenty three times"
+  },
+  "ins.14x": {
+   "beat": 53,
+   "startFrame": 10915,
+   "frame": 10951,
+   "words": "fourteen times"
+  },
+  "ins.remain": {
+   "beat": 54,
+   "startFrame": 11300,
+   "frame": 11315,
+   "words": "remain"
+  },
+  "ins.kind": {
+   "beat": 55,
+   "startFrame": 11427,
+   "frame": 11453,
+   "words": "kind of work"
+  },
+  "ins.kindwork": {
+   "beat": 55,
+   "startFrame": 11418,
+   "frame": 11475,
+   "words": "the kind of work people do"
+  },
+  "ins.peopledo": {
+   "beat": 55,
+   "startFrame": 11453,
+   "frame": 11475,
+   "words": "people do"
+  },
+  "ins.itsalso": {
+   "beat": 55,
+   "startFrame": 11494,
+   "frame": 11521,
+   "words": "also about"
+  },
+  "ins.disposal": {
+   "beat": 55,
+   "startFrame": 11594,
+   "frame": 11611,
+   "words": "disposal"
+  },
+  "cap.amer": {
+   "beat": 56,
+   "startFrame": 11675,
+   "frame": 11714,
+   "words": "american workers"
+  },
+  "cap.farmore": {
+   "beat": 56,
+   "startFrame": 11809,
+   "frame": 11831,
+   "words": "far more"
+  },
+  "cap.word": {
+   "beat": 56,
+   "startFrame": 11831,
+   "frame": 11848,
+   "words": "capital"
+  },
+  "cap.mach": {
+   "beat": 56,
+   "startFrame": 11871,
+   "frame": 11887,
+   "words": "machinery"
+  },
+  "cap.tech": {
+   "beat": 56,
+   "startFrame": 11911,
+   "frame": 11932,
+   "words": "technology"
+  },
+  "cap.infra": {
+   "beat": 56,
+   "startFrame": 11954,
+   "frame": 11977,
+   "words": "infrastructure"
+  },
+  "cap.org": {
+   "beat": 56,
+   "startFrame": 12013,
+   "frame": 12037,
+   "words": "organizational"
+  },
+  "cap.hour": {
+   "beat": 56,
+   "startFrame": 12107,
+   "frame": 12118,
+   "words": "hour"
+  },
+  "cap.farm": {
+   "beat": 57,
+   "startFrame": 12160,
+   "frame": 12173,
+   "words": "farmer"
+  },
+  "cap.fact": {
+   "beat": 58,
+   "startFrame": 12305,
+   "frame": 12319,
+   "words": "factory"
+  },
+  "cap.serv": {
+   "beat": 59,
+   "startFrame": 12512,
+   "frame": 12539,
+   "words": "service worker"
+  },
+  "cap.concl": {
+   "beat": 60,
+   "startFrame": 13090,
+   "frame": 13114,
+   "words": "within"
+  },
+  "back.in": {
+   "beat": 61,
+   "startFrame": 13186,
+   "frame": 13195,
+   "words": "back"
+  },
+  "back.basket": {
+   "beat": 62,
+   "startFrame": 13292,
+   "frame": 13323,
+   "words": "cost basket"
+  },
+  "back.6x": {
+   "beat": 62,
+   "startFrame": 13349,
+   "frame": 13379,
+   "words": "six times"
+  },
+  "back.wage": {
+   "beat": 62,
+   "startFrame": 13455,
+   "frame": 13484,
+   "words": "indian wage"
+  },
+  "back.31x": {
+   "beat": 63,
+   "startFrame": 13632,
+   "frame": 13681,
+   "words": "thirty one times"
+  },
+  "back.sixfold": {
+   "beat": 64,
+   "startFrame": 13742,
+   "frame": 13777,
+   "words": "six fold"
+  },
+  "back.31fold": {
+   "beat": 64,
+   "startFrame": 13825,
+   "frame": 13878,
+   "words": "thirty one fold"
+  },
+  "back.fell": {
+   "beat": 64,
+   "startFrame": 13796,
+   "frame": 13825,
+   "words": "wages fell"
+  },
+  "back.meter": {
+   "beat": 65,
+   "startFrame": 13961,
+   "frame": 13971,
+   "words": "meter"
+  },
+  "end.t10": {
+   "beat": 66,
+   "startFrame": 14086,
+   "frame": 14107,
+   "words": "ten percent"
+  },
+  "end.floor": {
+   "beat": 66,
+   "startFrame": 14213,
+   "frame": 14225,
+   "words": "floor"
+  },
+  "end.rank": {
+   "beat": 68,
+   "startFrame": 14539,
+   "frame": 14557,
+   "words": "rank"
+  },
+  "end.gap": {
+   "beat": 69,
+   "startFrame": 14724,
+   "frame": 14734,
+   "words": "gap"
+  },
+  "end.income": {
+   "beat": 69,
+   "startFrame": 14746,
+   "frame": 14773,
+   "words": "your income"
+  },
+  "end.cost": {
+   "beat": 69,
+   "startFrame": 14792,
+   "frame": 14811,
+   "words": "the cost"
+  }
+ }
+}
