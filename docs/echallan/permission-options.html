@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>e-Challan · how a permission reads</title>
+<style>
+:root{--ink:#E8EDF9;--dim:#94A2C3;--faint:#65729A;--line:#1E2744;--card:#0E142A;--bg:#070B1A;--cob:#5A86F2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:56px 28px 120px}
+h1{font-size:30px;letter-spacing:-.02em;margin:0 0 6px;font-weight:650}
+.sub{color:var(--faint);font-size:13.5px;margin:0 0 36px}
+.bad{background:#1A0E14;border:1px solid #47202C;border-left:3px solid #C4383F;border-radius:10px;padding:18px 22px;margin:0 0 18px}
+.bad b{color:#FF9AA2}
+.law{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--cob);border-radius:10px;padding:18px 22px;margin:0 0 34px}
+.law b{color:#fff}
+h2{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:44px 0 18px;font-weight:650;border-top:1px solid var(--line);padding-top:20px}
+.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0 0 6px}
+.cell{background:#05040F;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.cell img{display:block;width:100%;height:auto}
+.cell span{display:block;font:600 9.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:var(--faint);padding:8px 8px;border-top:1px solid var(--line)}
+.beats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0 0 30px}
+.beats p{margin:0;font-size:13px;color:var(--dim)}
+.beats b{color:var(--ink);display:block;font-size:13.5px;margin-bottom:3px}
+.ask{background:#0E142A;border:1px solid #2E4788;border-radius:12px;padding:22px 24px;margin:30px 0 0}
+.ask h3{margin:0 0 10px;font-size:16px}
+.ask ul{margin:0;padding-left:18px;color:var(--dim);font-size:14px}
+.ask li{margin:0 0 8px}
+code{font:12.5px ui-monospace,Menlo,monospace;background:#161E38;padding:2px 6px;border-radius:4px;color:#B9C7EC}
+</style></head><body><div class="wrap">
+
+<h1>How a permission reads</h1>
+<p class="sub">Rendered in the film's own interior, with the film's own assets, lighting and camera.</p>
+
+<div class="bad">
+  <p style="margin:0"><b>Why the last set failed the silent test.</b> Describe it with the sound off and you get: <i>“a chute opens under a post office and letters fall into a box.”</i> Nothing said <b>who</b> opened it, <b>who</b> receives it, or that <b>you allowed it</b>. The app was never in frame and the granting was never shown — I had removed the wire and left a colour code doing three jobs it cannot do.</p>
+</div>
+
+<div class="law">
+  <p style="margin:0 0 10px"><b>The correction.</b> Reuse the grammar the viewer already learned at the boundary wall twenty seconds earlier, because <b>the grant is the same act every time and should look the same every time.</b> Only the consequence differs.</p>
+  <p style="margin:0">So each building gets an Android <b>service hatch</b>: the protection's shield cast into its leaf, bolts that retract, a lamp that goes red → green, and a leaf that sinks exactly as the wall's door panel sinks. The hatch is also the aperture — what is behind it is the thing the permission gives away — so one object carries all three beats.</p>
+</div>
+
+<h2>The five beats — SMS</h2>
+<div class="strip">
+  <div class="cell"><img src="perm/s0.png" alt=""><span>1 · ASK</span></div>
+  <div class="cell"><img src="perm/s1.png" alt=""><span>2 · GRANT</span></div>
+  <div class="cell"><img src="perm/s2.png" alt=""><span>3 · COLLECT</span></div>
+  <div class="cell"><img src="perm/s3.png" alt=""><span>4 · CARRY</span></div>
+  <div class="cell"><img src="perm/s4.png" alt=""><span>5 · DELIVER</span></div>
+</div>
+<div class="beats">
+  <p><b>It asks.</b> A sealed steel hatch on the post office. Bolt lamps red. The sill shows what is being asked for, and a ✓.</p>
+  <p><b>You allow it.</b> The finger presses ✓, the bolts retract to green, the leaf sinks — and behind it is your post.</p>
+  <p><b>They take it.</b> The app's drone stands off above and lifts a sack out of the open hatch. The top shelf is emptied into it.</p>
+  <p><b>It leaves.</b> The drone carries your post across your own city, toward the building the app built.</p>
+  <p><b>They have it.</b> It drops into a port on the app's mast, and that capability's lamp lights. The app now holds your SMS.</p>
+</div>
+
+<div class="ask">
+  <h3>Where this stands</h3>
+  <ul>
+    <li><b>SMS is built and proven; CALLS, BACKGROUND and VPN are not yet.</b> I stopped here deliberately — the principle gets signed off before three more are built and the act is rewired.</li>
+    <li><b>Act 2 still plays the old version.</b> Right now the permission beat is a floating dialog panel in mid-air with cyan and purple wires arcing to the rooftop icons and a finger pointing up at it. That is what the hatch replaces.</li>
+    <li><b>The shelves stay emptied.</b> Beats 4 and 5 keep the depleted hatch rather than restocking it — what was taken is gone.</li>
+    <li><b>Two fixes proven byte-identical, not asserted:</b> generalising the wall's bolt so the hatch reuses that exact asset, and making the drone's tether colour a prop (it was hardcoded WhatsApp green even on the cobalt drone). Both re-rendered and diffed against the originals — no pixel changed.</li>
+    <li><b>A trap worth knowing:</b> <code>tools/echallan/render.mjs</code> used to default to the <code>Echallan</code> composition, which is the abandoned legacy film. The film is the <code>Opening</code> composition, and the renderer now defaults to it.</li>
+  </ul>
+</div>
+
+</div></body></html>

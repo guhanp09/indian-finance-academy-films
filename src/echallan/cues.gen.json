@@ -1,0 +1,1462 @@
+{
+ "duration": 122.85,
+ "frames": 7371,
+ "fps": 60,
+ "cue": {
+  "cardArrive": 0.284,
+  "cardLand": 1.124,
+  "plateSet": 1.744,
+  "amountRoll": 2.044,
+  "tileLift": 6.584,
+  "nameReveal": 6.834,
+  "extEmphasis": 7.254,
+  "glyphBecomesPackage": 8.234,
+  "apkTap": 12.93,
+  "systemRise": 13.35,
+  "warningLands": 14.834,
+  "sourceShown": 15.294,
+  "barrierSet": 15.814,
+  "packageBlocked": 16.314,
+  "toggleIn": 18.114,
+  "toggleHover": 20.884,
+  "togglePress": 21.678,
+  "barrierOpens": 22.038,
+  "installerIn": 24.152,
+  "installProgress": 24.332,
+  "iconAssembles": 25.484,
+  "iconDocks": 25.884,
+  "iconForward": 26.984,
+  "appOpens": 27.464,
+  "updateRise": 32.278,
+  "updateWords": 33.018,
+  "updatePress": 35.566,
+  "payloadAppears": 35.806,
+  "installer2": 36.616,
+  "confirm2": 36.756,
+  "payloadDescends": 36.756,
+  "payloadLands": 36.856,
+  "appResurfaces": 37.196,
+  "smsCard": 39.702,
+  "smsGrant": 42.122,
+  "callCard": 42.856,
+  "callGrant": 43.676,
+  "bgConcept": 44.302,
+  "bgGrant": 45.922,
+  "vpnCard": 46.982,
+  "vpnGrant": 48.142,
+  "tunnelGrows": 48.282,
+  "tunnelSettles": 48.462,
+  "allFour": 48.762,
+  "hastyStart": 50.382,
+  "hastyTaps": [
+   50.812,
+   52.442,
+   53.292
+  ],
+  "hastyEnd": 53.542,
+  "irony": 53.902,
+  "foldToPayment": 54.242,
+  "formFocus": 55.152,
+  "typing": 55.412,
+  "payPress": 57.612,
+  "spinner": 57.772,
+  "tickDraws": 58.052,
+  "successLands": 58.382,
+  "falseEnd": 58.682,
+  "thin": 58.868,
+  "seamsCatch": 59.728,
+  "shellOpens": 60.952,
+  "push": 61.112,
+  "payloadExposed": 62.292,
+  "drain": 62.892,
+  "dropperShown": 63.252,
+  "routesBend": 64.292,
+  "coreTurns": 66.602,
+  "allPathsTerminate": 66.902,
+  "fieldsReturn": 69.226,
+  "credDetach": 70.426,
+  "credToCore": 72.386,
+  "credInCore": 73.186,
+  "smsNamed": 76.23,
+  "otpArrives": 77.722,
+  "duplicate": 79.662,
+  "exfil": 80.422,
+  "serverReceives": 81.982,
+  "pullBack": 82.579,
+  "credHighlight": 84.052,
+  "codeHighlight": 85.93,
+  "bothPresent": 86.61,
+  "capability": 87.45,
+  "chainStarts": 90.146,
+  "chainNodes": [
+   90.306,
+   90.986,
+   91.866,
+   92.826,
+   93.186,
+   94.252,
+   94.732,
+   95.092,
+   95.492,
+   95.672,
+   96.392
+  ],
+  "chainFlows": 97.28,
+  "installTrace": 95.672,
+  "accessTrace": 97.28,
+  "handoverTrace": 98.92,
+  "endpointWakes": 100.64,
+  "chainEnds": 101.86,
+  "messageReturns": 103.192,
+  "xStroke1": 106.232,
+  "xStroke2": 106.452,
+  "safeRouteShown": 107.272,
+  "ghostRetracts": 107.892,
+  "fingerRedirects": 109.372,
+  "browserGrows": 110.722,
+  "portalLands": 111.522,
+  "lookup": 113.992,
+  "verified": 115.712,
+  "stateRoute": 117.792,
+  "settle": 118.852,
+  "lastFrame": 121.31,
+  "holdUpdate": {
+   "a": 29.004,
+   "b": 30.418
+  },
+  "holdFalseEnd": {
+   "a": 57.432,
+   "b": 58.728
+  },
+  "holdReveal": {
+   "a": 66.902,
+   "b": 69.226
+  }
+ },
+ "blocks": [
+  {
+   "i": 0,
+   "t": 0.084,
+   "phase": "hook",
+   "text": "The"
+  },
+  {
+   "i": 1,
+   "t": 0.284,
+   "phase": "hook",
+   "text": "scammer will"
+  },
+  {
+   "i": 2,
+   "t": 0.864,
+   "phase": "hook",
+   "text": "send"
+  },
+  {
+   "i": 3,
+   "t": 1.124,
+   "phase": "hook",
+   "text": "you what"
+  },
+  {
+   "i": 4,
+   "t": 1.444,
+   "phase": "hook",
+   "text": "looks"
+  },
+  {
+   "i": 5,
+   "t": 1.744,
+   "phase": "hook",
+   "text": "like"
+  },
+  {
+   "i": 6,
+   "t": 2.044,
+   "phase": "hook",
+   "text": "an official"
+  },
+  {
+   "i": 7,
+   "t": 2.484,
+   "phase": "hook",
+   "text": "traffic"
+  },
+  {
+   "i": 8,
+   "t": 2.924,
+   "phase": "hook",
+   "text": "challan on"
+  },
+  {
+   "i": 9,
+   "t": 3.544,
+   "phase": "hook",
+   "text": "WhatsApp."
+  },
+  {
+   "i": 10,
+   "t": 4.736,
+   "phase": "apk",
+   "text": "It"
+  },
+  {
+   "i": 11,
+   "t": 4.856,
+   "phase": "apk",
+   "text": "may include"
+  },
+  {
+   "i": 12,
+   "t": 5.396,
+   "phase": "apk",
+   "text": "your"
+  },
+  {
+   "i": 13,
+   "t": 5.616,
+   "phase": "apk",
+   "text": "vehicle details,"
+  },
+  {
+   "i": 14,
+   "t": 6.584,
+   "phase": "apk",
+   "text": "an"
+  },
+  {
+   "i": 15,
+   "t": 6.834,
+   "phase": "apk",
+   "text": "amount"
+  },
+  {
+   "i": 16,
+   "t": 7.254,
+   "phase": "apk",
+   "text": "due, and"
+  },
+  {
+   "i": 17,
+   "t": 8.234,
+   "phase": "apk",
+   "text": "a"
+  },
+  {
+   "i": 18,
+   "t": 8.354,
+   "phase": "apk",
+   "text": "file named"
+  },
+  {
+   "i": 19,
+   "t": 8.954,
+   "phase": "apk",
+   "text": "something"
+  },
+  {
+   "i": 20,
+   "t": 9.294,
+   "phase": "apk",
+   "text": "like “RTO"
+  },
+  {
+   "i": 21,
+   "t": 10.337,
+   "phase": "apk",
+   "text": "Challan.apk”."
+  },
+  {
+   "i": 22,
+   "t": 12.75,
+   "phase": "barrier",
+   "text": "You"
+  },
+  {
+   "i": 23,
+   "t": 12.93,
+   "phase": "barrier",
+   "text": "tap the"
+  },
+  {
+   "i": 24,
+   "t": 13.35,
+   "phase": "barrier",
+   "text": "file."
+  },
+  {
+   "i": 25,
+   "t": 14.234,
+   "phase": "barrier",
+   "text": "Android may"
+  },
+  {
+   "i": 26,
+   "t": 14.834,
+   "phase": "barrier",
+   "text": "warn"
+  },
+  {
+   "i": 27,
+   "t": 15.154,
+   "phase": "barrier",
+   "text": "you"
+  },
+  {
+   "i": 28,
+   "t": 15.294,
+   "phase": "barrier",
+   "text": "that WhatsApp"
+  },
+  {
+   "i": 29,
+   "t": 15.814,
+   "phase": "barrier",
+   "text": "isn’t"
+  },
+  {
+   "i": 30,
+   "t": 16.314,
+   "phase": "barrier",
+   "text": "allowed to"
+  },
+  {
+   "i": 31,
+   "t": 16.734,
+   "phase": "barrier",
+   "text": "install"
+  },
+  {
+   "i": 32,
+   "t": 17.134,
+   "phase": "barrier",
+   "text": "apps"
+  },
+  {
+   "i": 33,
+   "t": 17.514,
+   "phase": "barrier",
+   "text": "from outside"
+  },
+  {
+   "i": 34,
+   "t": 18.114,
+   "phase": "barrier",
+   "text": "the"
+  },
+  {
+   "i": 35,
+   "t": 18.334,
+   "phase": "barrier",
+   "text": "Play"
+  },
+  {
+   "i": 36,
+   "t": 18.534,
+   "phase": "barrier",
+   "text": "Store, but"
+  },
+  {
+   "i": 37,
+   "t": 19.474,
+   "phase": "barrier",
+   "text": "you"
+  },
+  {
+   "i": 38,
+   "t": 19.594,
+   "phase": "barrier",
+   "text": "overlook the"
+  },
+  {
+   "i": 39,
+   "t": 20.154,
+   "phase": "barrier",
+   "text": "warning"
+  },
+  {
+   "i": 40,
+   "t": 20.884,
+   "phase": "barrier",
+   "text": "and"
+  },
+  {
+   "i": 41,
+   "t": 21.044,
+   "phase": "barrier",
+   "text": "tap on"
+  },
+  {
+   "i": 42,
+   "t": 21.678,
+   "phase": "barrier",
+   "text": "“Allow"
+  },
+  {
+   "i": 43,
+   "t": 22.038,
+   "phase": "barrier",
+   "text": "from this"
+  },
+  {
+   "i": 44,
+   "t": 22.518,
+   "phase": "barrier",
+   "text": "source” anyway."
+  },
+  {
+   "i": 45,
+   "t": 24.152,
+   "phase": "firstapp",
+   "text": "The"
+  },
+  {
+   "i": 46,
+   "t": 24.332,
+   "phase": "firstapp",
+   "text": "app installs,"
+  },
+  {
+   "i": 47,
+   "t": 25.484,
+   "phase": "firstapp",
+   "text": "appears"
+  },
+  {
+   "i": 48,
+   "t": 25.884,
+   "phase": "firstapp",
+   "text": "on your"
+  },
+  {
+   "i": 49,
+   "t": 26.204,
+   "phase": "firstapp",
+   "text": "phone,"
+  },
+  {
+   "i": 50,
+   "t": 26.984,
+   "phase": "firstapp",
+   "text": "and opens"
+  },
+  {
+   "i": 51,
+   "t": 27.464,
+   "phase": "firstapp",
+   "text": "to"
+  },
+  {
+   "i": 52,
+   "t": 27.604,
+   "phase": "firstapp",
+   "text": "what looks"
+  },
+  {
+   "i": 53,
+   "t": 28.044,
+   "phase": "firstapp",
+   "text": "like"
+  },
+  {
+   "i": 54,
+   "t": 28.284,
+   "phase": "firstapp",
+   "text": "an e-Challan"
+  },
+  {
+   "i": 55,
+   "t": 29.004,
+   "phase": "firstapp",
+   "text": "service."
+  },
+  {
+   "i": 56,
+   "t": 30.418,
+   "phase": "update",
+   "text": "Then"
+  },
+  {
+   "i": 57,
+   "t": 30.658,
+   "phase": "update",
+   "text": "when you"
+  },
+  {
+   "i": 58,
+   "t": 30.958,
+   "phase": "update",
+   "text": "proceed to"
+  },
+  {
+   "i": 59,
+   "t": 31.478,
+   "phase": "update",
+   "text": "pay,"
+  },
+  {
+   "i": 60,
+   "t": 32.278,
+   "phase": "update",
+   "text": "it asks"
+  },
+  {
+   "i": 61,
+   "t": 32.678,
+   "phase": "secondinstall",
+   "text": "you to"
+  },
+  {
+   "i": 62,
+   "t": 33.018,
+   "phase": "secondinstall",
+   "text": "install"
+  },
+  {
+   "i": 63,
+   "t": 33.458,
+   "phase": "secondinstall",
+   "text": "an update first, so"
+  },
+  {
+   "i": 64,
+   "t": 35.166,
+   "phase": "secondinstall",
+   "text": "you"
+  },
+  {
+   "i": 65,
+   "t": 35.306,
+   "phase": "secondinstall",
+   "text": "tap"
+  },
+  {
+   "i": 66,
+   "t": 35.566,
+   "phase": "secondinstall",
+   "text": "that"
+  },
+  {
+   "i": 67,
+   "t": 35.806,
+   "phase": "secondinstall",
+   "text": "too"
+  },
+  {
+   "i": 68,
+   "t": 36.616,
+   "phase": "secondinstall",
+   "text": "and"
+  },
+  {
+   "i": 69,
+   "t": 36.756,
+   "phase": "secondinstall",
+   "text": "the"
+  },
+  {
+   "i": 70,
+   "t": 36.856,
+   "phase": "secondinstall",
+   "text": "update"
+  },
+  {
+   "i": 71,
+   "t": 37.196,
+   "phase": "secondinstall",
+   "text": "installs."
+  },
+  {
+   "i": 72,
+   "t": 38.682,
+   "phase": "permissions",
+   "text": "Now"
+  },
+  {
+   "i": 73,
+   "t": 38.942,
+   "phase": "permissions",
+   "text": "the app"
+  },
+  {
+   "i": 74,
+   "t": 39.322,
+   "phase": "permissions",
+   "text": "begins"
+  },
+  {
+   "i": 75,
+   "t": 39.702,
+   "phase": "permissions",
+   "text": "asking for"
+  },
+  {
+   "i": 76,
+   "t": 40.322,
+   "phase": "permissions",
+   "text": "permissions"
+  },
+  {
+   "i": 77,
+   "t": 40.742,
+   "phase": "permissions",
+   "text": "to access"
+  },
+  {
+   "i": 78,
+   "t": 41.442,
+   "phase": "permissions",
+   "text": "your"
+  },
+  {
+   "i": 79,
+   "t": 41.702,
+   "phase": "permissions",
+   "text": "SMS,"
+  },
+  {
+   "i": 80,
+   "t": 42.856,
+   "phase": "permissions",
+   "text": "your phone"
+  },
+  {
+   "i": 81,
+   "t": 43.336,
+   "phase": "permissions",
+   "text": "calls,"
+  },
+  {
+   "i": 82,
+   "t": 44.302,
+   "phase": "permissions",
+   "text": "permission to"
+  },
+  {
+   "i": 83,
+   "t": 44.862,
+   "phase": "permissions",
+   "text": "keep"
+  },
+  {
+   "i": 84,
+   "t": 45.042,
+   "phase": "permissions",
+   "text": "running in"
+  },
+  {
+   "i": 85,
+   "t": 45.542,
+   "phase": "permissions",
+   "text": "the"
+  },
+  {
+   "i": 86,
+   "t": 45.622,
+   "phase": "permissions",
+   "text": "background,"
+  },
+  {
+   "i": 87,
+   "t": 46.622,
+   "phase": "permissions",
+   "text": "and even"
+  },
+  {
+   "i": 88,
+   "t": 46.982,
+   "phase": "permissions",
+   "text": "permission"
+  },
+  {
+   "i": 89,
+   "t": 47.382,
+   "phase": "permissions",
+   "text": "to set"
+  },
+  {
+   "i": 90,
+   "t": 47.802,
+   "phase": "permissions",
+   "text": "up"
+  },
+  {
+   "i": 91,
+   "t": 47.942,
+   "phase": "permissions",
+   "text": "a VPN"
+  },
+  {
+   "i": 92,
+   "t": 48.462,
+   "phase": "permissions",
+   "text": "connection."
+  },
+  {
+   "i": 93,
+   "t": 50.382,
+   "phase": "hasty",
+   "text": "After"
+  },
+  {
+   "i": 94,
+   "t": 50.662,
+   "phase": "hasty",
+   "text": "allowing all"
+  },
+  {
+   "i": 95,
+   "t": 51.302,
+   "phase": "hasty",
+   "text": "permissions,"
+  },
+  {
+   "i": 96,
+   "t": 52.342,
+   "phase": "hasty",
+   "text": "you"
+  },
+  {
+   "i": 97,
+   "t": 52.402,
+   "phase": "hasty",
+   "text": "finally arrive"
+  },
+  {
+   "i": 98,
+   "t": 53.242,
+   "phase": "hasty",
+   "text": "at the"
+  },
+  {
+   "i": 99,
+   "t": 53.542,
+   "phase": "hasty",
+   "text": "challan"
+  },
+  {
+   "i": 100,
+   "t": 53.902,
+   "phase": "hasty",
+   "text": "payment"
+  },
+  {
+   "i": 101,
+   "t": 54.242,
+   "phase": "hasty",
+   "text": "screen"
+  },
+  {
+   "i": 102,
+   "t": 55.152,
+   "phase": "payment",
+   "text": "where you"
+  },
+  {
+   "i": 103,
+   "t": 55.412,
+   "phase": "payment",
+   "text": "enter"
+  },
+  {
+   "i": 104,
+   "t": 55.672,
+   "phase": "payment",
+   "text": "the"
+  },
+  {
+   "i": 105,
+   "t": 55.852,
+   "phase": "payment",
+   "text": "details"
+  },
+  {
+   "i": 106,
+   "t": 56.332,
+   "phase": "payment",
+   "text": "needed"
+  },
+  {
+   "i": 107,
+   "t": 56.732,
+   "phase": "payment",
+   "text": "to"
+  },
+  {
+   "i": 108,
+   "t": 56.932,
+   "phase": "payment",
+   "text": "settle"
+  },
+  {
+   "i": 109,
+   "t": 57.252,
+   "phase": "payment",
+   "text": "the"
+  },
+  {
+   "i": 110,
+   "t": 57.432,
+   "phase": "payment",
+   "text": "fine."
+  },
+  {
+   "i": 111,
+   "t": 58.728,
+   "phase": "reveal",
+   "text": "You"
+  },
+  {
+   "i": 112,
+   "t": 58.868,
+   "phase": "reveal",
+   "text": "think you’ve"
+  },
+  {
+   "i": 113,
+   "t": 59.388,
+   "phase": "reveal",
+   "text": "settled"
+  },
+  {
+   "i": 114,
+   "t": 59.728,
+   "phase": "reveal",
+   "text": "your challan,"
+  },
+  {
+   "i": 115,
+   "t": 60.952,
+   "phase": "reveal",
+   "text": "but"
+  },
+  {
+   "i": 116,
+   "t": 61.112,
+   "phase": "reveal",
+   "text": "in reality,"
+  },
+  {
+   "i": 117,
+   "t": 61.992,
+   "phase": "reveal",
+   "text": "the"
+  },
+  {
+   "i": 118,
+   "t": 62.292,
+   "phase": "reveal",
+   "text": "first app"
+  },
+  {
+   "i": 119,
+   "t": 62.892,
+   "phase": "reveal",
+   "text": "was"
+  },
+  {
+   "i": 120,
+   "t": 63.132,
+   "phase": "reveal",
+   "text": "a"
+  },
+  {
+   "i": 121,
+   "t": 63.252,
+   "phase": "reveal",
+   "text": "dropper, and"
+  },
+  {
+   "i": 122,
+   "t": 64.212,
+   "phase": "reveal",
+   "text": "the"
+  },
+  {
+   "i": 123,
+   "t": 64.292,
+   "phase": "reveal",
+   "text": "subsequent “update”"
+  },
+  {
+   "i": 124,
+   "t": 65.542,
+   "phase": "reveal",
+   "text": "had actually installed"
+  },
+  {
+   "i": 125,
+   "t": 66.602,
+   "phase": "reveal",
+   "text": "a"
+  },
+  {
+   "i": 126,
+   "t": 66.902,
+   "phase": "reveal",
+   "text": "malware."
+  },
+  {
+   "i": 127,
+   "t": 69.226,
+   "phase": "theft",
+   "text": "The"
+  },
+  {
+   "i": 128,
+   "t": 69.366,
+   "phase": "theft",
+   "text": "financial details"
+  },
+  {
+   "i": 129,
+   "t": 70.266,
+   "phase": "theft",
+   "text": "you"
+  },
+  {
+   "i": 130,
+   "t": 70.426,
+   "phase": "theft",
+   "text": "entered into"
+  },
+  {
+   "i": 131,
+   "t": 70.986,
+   "phase": "theft",
+   "text": "the"
+  },
+  {
+   "i": 132,
+   "t": 71.146,
+   "phase": "theft",
+   "text": "fake payment"
+  },
+  {
+   "i": 133,
+   "t": 71.746,
+   "phase": "theft",
+   "text": "screen"
+  },
+  {
+   "i": 134,
+   "t": 72.146,
+   "phase": "theft",
+   "text": "can"
+  },
+  {
+   "i": 135,
+   "t": 72.386,
+   "phase": "theft",
+   "text": "be stolen"
+  },
+  {
+   "i": 136,
+   "t": 72.886,
+   "phase": "theft",
+   "text": "by"
+  },
+  {
+   "i": 137,
+   "t": 73.186,
+   "phase": "theft",
+   "text": "the malware,"
+  },
+  {
+   "i": 138,
+   "t": 74.33,
+   "phase": "theft",
+   "text": "and"
+  },
+  {
+   "i": 139,
+   "t": 74.47,
+   "phase": "theft",
+   "text": "because you’ve"
+  },
+  {
+   "i": 140,
+   "t": 74.91,
+   "phase": "theft",
+   "text": "already"
+  },
+  {
+   "i": 141,
+   "t": 75.21,
+   "phase": "theft",
+   "text": "given"
+  },
+  {
+   "i": 142,
+   "t": 75.45,
+   "phase": "theft",
+   "text": "it access"
+  },
+  {
+   "i": 143,
+   "t": 75.95,
+   "phase": "theft",
+   "text": "to"
+  },
+  {
+   "i": 144,
+   "t": 76.23,
+   "phase": "theft",
+   "text": "your SMS,"
+  },
+  {
+   "i": 145,
+   "t": 77.542,
+   "phase": "theft",
+   "text": "your"
+  },
+  {
+   "i": 146,
+   "t": 77.722,
+   "phase": "theft",
+   "text": "incoming OTPs"
+  },
+  {
+   "i": 147,
+   "t": 79.202,
+   "phase": "theft",
+   "text": "can also"
+  },
+  {
+   "i": 148,
+   "t": 79.662,
+   "phase": "theft",
+   "text": "be automatically"
+  },
+  {
+   "i": 149,
+   "t": 80.422,
+   "phase": "theft",
+   "text": "forwarded"
+  },
+  {
+   "i": 150,
+   "t": 81.182,
+   "phase": "theft",
+   "text": "to"
+  },
+  {
+   "i": 151,
+   "t": 81.322,
+   "phase": "theft",
+   "text": "the attacker’s"
+  },
+  {
+   "i": 152,
+   "t": 81.982,
+   "phase": "theft",
+   "text": "server"
+  },
+  {
+   "i": 153,
+   "t": 82.579,
+   "phase": "theft",
+   "text": "— giving"
+  },
+  {
+   "i": 154,
+   "t": 83.112,
+   "phase": "theft",
+   "text": "them"
+  },
+  {
+   "i": 155,
+   "t": 83.292,
+   "phase": "theft",
+   "text": "both your bank"
+  },
+  {
+   "i": 156,
+   "t": 84.052,
+   "phase": "theft",
+   "text": "credentials"
+  },
+  {
+   "i": 157,
+   "t": 85.13,
+   "phase": "theft",
+   "text": "and"
+  },
+  {
+   "i": 158,
+   "t": 85.37,
+   "phase": "theft",
+   "text": "the verification"
+  },
+  {
+   "i": 159,
+   "t": 85.93,
+   "phase": "theft",
+   "text": "codes"
+  },
+  {
+   "i": 160,
+   "t": 86.61,
+   "phase": "theft",
+   "text": "needed to"
+  },
+  {
+   "i": 161,
+   "t": 87.15,
+   "phase": "theft",
+   "text": "carry"
+  },
+  {
+   "i": 162,
+   "t": 87.45,
+   "phase": "theft",
+   "text": "out unauthorised"
+  },
+  {
+   "i": 163,
+   "t": 88.51,
+   "phase": "theft",
+   "text": "transactions."
+  },
+  {
+   "i": 164,
+   "t": 90.146,
+   "phase": "recap",
+   "text": "So"
+  },
+  {
+   "i": 165,
+   "t": 90.306,
+   "phase": "recap",
+   "text": "what looked"
+  },
+  {
+   "i": 166,
+   "t": 90.766,
+   "phase": "recap",
+   "text": "like"
+  },
+  {
+   "i": 167,
+   "t": 90.986,
+   "phase": "recap",
+   "text": "a routine"
+  },
+  {
+   "i": 168,
+   "t": 91.506,
+   "phase": "recap",
+   "text": "traffic"
+  },
+  {
+   "i": 169,
+   "t": 91.866,
+   "phase": "recap",
+   "text": "fine was"
+  },
+  {
+   "i": 170,
+   "t": 92.826,
+   "phase": "recap",
+   "text": "actually"
+  },
+  {
+   "i": 171,
+   "t": 93.186,
+   "phase": "recap",
+   "text": "a step-by-step"
+  },
+  {
+   "i": 172,
+   "t": 94.252,
+   "phase": "recap",
+   "text": "process"
+  },
+  {
+   "i": 173,
+   "t": 94.732,
+   "phase": "recap",
+   "text": "designed"
+  },
+  {
+   "i": 174,
+   "t": 95.092,
+   "phase": "recap",
+   "text": "to make"
+  },
+  {
+   "i": 175,
+   "t": 95.492,
+   "phase": "recap",
+   "text": "you"
+  },
+  {
+   "i": 176,
+   "t": 95.672,
+   "phase": "recap",
+   "text": "install the"
+  },
+  {
+   "i": 177,
+   "t": 96.392,
+   "phase": "recap",
+   "text": "malware,"
+  },
+  {
+   "i": 178,
+   "t": 97.28,
+   "phase": "recap",
+   "text": "approve its"
+  },
+  {
+   "i": 179,
+   "t": 97.9,
+   "phase": "recap",
+   "text": "access,"
+  },
+  {
+   "i": 180,
+   "t": 98.78,
+   "phase": "recap",
+   "text": "and"
+  },
+  {
+   "i": 181,
+   "t": 98.92,
+   "phase": "recap",
+   "text": "hand over"
+  },
+  {
+   "i": 182,
+   "t": 99.46,
+   "phase": "recap",
+   "text": "all"
+  },
+  {
+   "i": 183,
+   "t": 99.72,
+   "phase": "recap",
+   "text": "the information"
+  },
+  {
+   "i": 184,
+   "t": 100.38,
+   "phase": "recap",
+   "text": "it"
+  },
+  {
+   "i": 185,
+   "t": 100.64,
+   "phase": "recap",
+   "text": "needs to"
+  },
+  {
+   "i": 186,
+   "t": 101.16,
+   "phase": "recap",
+   "text": "carry"
+  },
+  {
+   "i": 187,
+   "t": 101.44,
+   "phase": "recap",
+   "text": "out an"
+  },
+  {
+   "i": 188,
+   "t": 101.86,
+   "phase": "recap",
+   "text": "attack."
+  },
+  {
+   "i": 189,
+   "t": 103.192,
+   "phase": "prevention",
+   "text": "Please"
+  },
+  {
+   "i": 190,
+   "t": 103.452,
+   "phase": "prevention",
+   "text": "be aware"
+  },
+  {
+   "i": 191,
+   "t": 103.912,
+   "phase": "prevention",
+   "text": "that"
+  },
+  {
+   "i": 192,
+   "t": 104.172,
+   "phase": "prevention",
+   "text": "a legitimate"
+  },
+  {
+   "i": 193,
+   "t": 104.712,
+   "phase": "prevention",
+   "text": "traffic"
+  },
+  {
+   "i": 194,
+   "t": 105.212,
+   "phase": "prevention",
+   "text": "challan does"
+  },
+  {
+   "i": 195,
+   "t": 106.232,
+   "phase": "prevention",
+   "text": "not"
+  },
+  {
+   "i": 196,
+   "t": 106.452,
+   "phase": "prevention",
+   "text": "require you"
+  },
+  {
+   "i": 197,
+   "t": 107.112,
+   "phase": "prevention",
+   "text": "to"
+  },
+  {
+   "i": 198,
+   "t": 107.272,
+   "phase": "prevention",
+   "text": "install an"
+  },
+  {
+   "i": 199,
+   "t": 107.892,
+   "phase": "prevention",
+   "text": "APK"
+  },
+  {
+   "i": 200,
+   "t": 108.632,
+   "phase": "prevention",
+   "text": "sent over"
+  },
+  {
+   "i": 201,
+   "t": 109.372,
+   "phase": "prevention",
+   "text": "WhatsApp."
+  },
+  {
+   "i": 202,
+   "t": 110.722,
+   "phase": "verify",
+   "text": "If"
+  },
+  {
+   "i": 203,
+   "t": 110.902,
+   "phase": "verify",
+   "text": "you receive"
+  },
+  {
+   "i": 204,
+   "t": 111.362,
+   "phase": "verify",
+   "text": "a"
+  },
+  {
+   "i": 205,
+   "t": 111.522,
+   "phase": "verify",
+   "text": "challan message, it is advisable to"
+  },
+  {
+   "i": 206,
+   "t": 113.612,
+   "phase": "verify",
+   "text": "verify"
+  },
+  {
+   "i": 207,
+   "t": 113.992,
+   "phase": "verify",
+   "text": "it yourself"
+  },
+  {
+   "i": 208,
+   "t": 114.652,
+   "phase": "verify",
+   "text": "through"
+  },
+  {
+   "i": 209,
+   "t": 115.072,
+   "phase": "verify",
+   "text": "the official"
+  },
+  {
+   "i": 210,
+   "t": 115.712,
+   "phase": "verify",
+   "text": "e-Challan"
+  },
+  {
+   "i": 211,
+   "t": 116.412,
+   "phase": "verify",
+   "text": "portal"
+  },
+  {
+   "i": 212,
+   "t": 116.852,
+   "phase": "verify",
+   "text": "or your"
+  },
+  {
+   "i": 213,
+   "t": 117.792,
+   "phase": "verify",
+   "text": "state"
+  },
+  {
+   "i": 214,
+   "t": 118.072,
+   "phase": "verify",
+   "text": "traffic police"
+  },
+  {
+   "i": 215,
+   "t": 118.852,
+   "phase": "verify",
+   "text": "website"
+  },
+  {
+   "i": 216,
+   "t": 119.79,
+   "phase": "verify",
+   "text": "before clicking any links in"
+  },
+  {
+   "i": 217,
+   "t": 121.31,
+   "phase": "verify",
+   "text": "it."
+  }
+ ],
+ "phases": {
+  "hook": 0.084,
+  "apk": 4.736,
+  "barrier": 12.75,
+  "firstapp": 24.152,
+  "update": 30.418,
+  "secondinstall": 32.678,
+  "permissions": 38.682,
+  "hasty": 50.382,
+  "payment": 55.152,
+  "reveal": 58.728,
+  "theft": 69.226,
+  "recap": 90.146,
+  "prevention": 103.192,
+  "verify": 110.722
+ }
+}
